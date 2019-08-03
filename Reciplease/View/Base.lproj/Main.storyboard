@@ -29,7 +29,7 @@
         <!--Reciplease-->
         <scene sceneID="0AD-x5-wPh">
             <objects>
-                <viewController id="a5p-M2-8Ea" sceneMemberID="viewController">
+                <viewController id="a5p-M2-8Ea" customClass="IngredientListViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mSd-qX-mI2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -59,6 +59,9 @@
                                                 <state key="normal" title="Add">
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="didTapAddIngredient:" destination="a5p-M2-8Ea" eventType="touchUpInside" id="VXA-OV-2NO"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -85,6 +88,25 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KNa-Oe-eFg">
                                 <rect key="frame" x="0.0" y="162" width="320" height="305"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ingredientCell" textLabel="Kpp-e9-BhQ" style="IBUITableViewCellStyleDefault" id="e9H-bd-Ole">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e9H-bd-Ole" id="zOR-hc-ENg">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kpp-e9-BhQ">
+                                                    <rect key="frame" x="15" y="0.0" width="290" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="WhB-hV-2Za">
                                 <rect key="frame" x="8" y="502" width="304" height="32"/>
@@ -96,6 +118,9 @@
                                         <state key="normal" title="Clear">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="didTapClearIngredientList:" destination="a5p-M2-8Ea" eventType="touchUpInside" id="BC9-Ck-9fX"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVV-ci-ZQO">
                                         <rect key="frame" x="159.5" y="0.0" width="144.5" height="32"/>
@@ -104,6 +129,9 @@
                                         <state key="normal" title="Search recipes">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="didTapSearchRecipes:" destination="a5p-M2-8Ea" eventType="touchUpInside" id="EgZ-vc-Jn6"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -124,6 +152,10 @@
                         <viewLayoutGuide key="safeArea" id="HhT-R9-Job"/>
                     </view>
                     <navigationItem key="navigationItem" title="Reciplease" id="m9C-fy-2ru"/>
+                    <connections>
+                        <outlet property="ingredientTextField" destination="eEH-pB-9BB" id="nab-yx-glx"/>
+                        <outlet property="tableView" destination="KNa-Oe-eFg" id="h7O-YO-fQn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ihq-uJ-QmM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
