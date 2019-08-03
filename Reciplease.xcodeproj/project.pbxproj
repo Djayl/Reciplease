@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C1C89DCA029B64C050180BF /* Pods_Reciplease.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA8603A006950A71A3409DB /* Pods_Reciplease.framework */; };
 		F059D2EA22F5AC7A00B88FA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F059D2E922F5AC7A00B88FA4 /* AppDelegate.swift */; };
 		F059D2EC22F5AC7A00B88FA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F059D2EB22F5AC7A00B88FA4 /* ViewController.swift */; };
 		F059D2EF22F5AC7A00B88FA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F059D2ED22F5AC7A00B88FA4 /* Main.storyboard */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1AA8603A006950A71A3409DB /* Pods_Reciplease.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reciplease.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		515E59EA34CD8665273D60BF /* Pods-Reciplease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.debug.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.debug.xcconfig"; sourceTree = "<group>"; };
+		7D825BD030CE915D90F2AE3D /* Pods-Reciplease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.release.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.release.xcconfig"; sourceTree = "<group>"; };
 		F059D2E622F5AC7A00B88FA4 /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F059D2E922F5AC7A00B88FA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F059D2EB22F5AC7A00B88FA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C1C89DCA029B64C050180BF /* Pods_Reciplease.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		465AF07A3FC572E1AB30E579 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1AA8603A006950A71A3409DB /* Pods_Reciplease.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE95D29DCCCD0DF1D936A392 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				515E59EA34CD8665273D60BF /* Pods-Reciplease.debug.xcconfig */,
+				7D825BD030CE915D90F2AE3D /* Pods-Reciplease.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		F059D2DD22F5AC7A00B88FA4 = {
 			isa = PBXGroup;
 			children = (
 				F059D2E822F5AC7A00B88FA4 /* Reciplease */,
 				F059D2E722F5AC7A00B88FA4 /* Products */,
+				CE95D29DCCCD0DF1D936A392 /* Pods */,
+				465AF07A3FC572E1AB30E579 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F059D2FB22F5AC7C00B88FA4 /* Build configuration list for PBXNativeTarget "Reciplease" */;
 			buildPhases = (
+				B48C8004AED8E2BCA636F823 /* [CP] Check Pods Manifest.lock */,
 				F059D2E222F5AC7A00B88FA4 /* Sources */,
 				F059D2E322F5AC7A00B88FA4 /* Frameworks */,
 				F059D2E422F5AC7A00B88FA4 /* Resources */,
+				551EA58CAE07656A7F309816 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		551EA58CAE07656A7F309816 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Reciplease/Pods-Reciplease-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Reciplease/Pods-Reciplease-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Reciplease/Pods-Reciplease-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B48C8004AED8E2BCA636F823 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Reciplease-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F059D2E222F5AC7A00B88FA4 /* Sources */ = {
@@ -284,6 +353,7 @@
 		};
 		F059D2FC22F5AC7C00B88FA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 515E59EA34CD8665273D60BF /* Pods-Reciplease.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +372,7 @@
 		};
 		F059D2FD22F5AC7C00B88FA4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D825BD030CE915D90F2AE3D /* Pods-Reciplease.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
