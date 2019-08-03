@@ -17,6 +17,7 @@
 		F0DA94A822F5B38900D2E42F /* EdamamProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DA94A722F5B38900D2E42F /* EdamamProtocol.swift */; };
 		F0DA94AA22F5B3C500D2E42F /* EdamamSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DA94A922F5B3C500D2E42F /* EdamamSession.swift */; };
 		F0DA94AC22F5B48500D2E42F /* EdamamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DA94AB22F5B48500D2E42F /* EdamamService.swift */; };
+		F0DA94AE22F5B59100D2E42F /* Edamam.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DA94AD22F5B59100D2E42F /* Edamam.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		F0DA94A722F5B38900D2E42F /* EdamamProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamProtocol.swift; sourceTree = "<group>"; };
 		F0DA94A922F5B3C500D2E42F /* EdamamSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamSession.swift; sourceTree = "<group>"; };
 		F0DA94AB22F5B48500D2E42F /* EdamamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamService.swift; sourceTree = "<group>"; };
+		F0DA94AD22F5B59100D2E42F /* Edamam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edamam.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				F0DA94A722F5B38900D2E42F /* EdamamProtocol.swift */,
 				F0DA94A922F5B3C500D2E42F /* EdamamSession.swift */,
 				F0DA94AB22F5B48500D2E42F /* EdamamService.swift */,
+				F0DA94AD22F5B59100D2E42F /* Edamam.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F059D2F222F5AC7A00B88FA4 /* Reciplease.xcdatamodeld in Sources */,
+				F0DA94AE22F5B59100D2E42F /* Edamam.swift in Sources */,
 				F0DA94AA22F5B3C500D2E42F /* EdamamSession.swift in Sources */,
 				F0DA94AC22F5B48500D2E42F /* EdamamService.swift in Sources */,
 				F059D2EC22F5AC7A00B88FA4 /* ViewController.swift in Sources */,
