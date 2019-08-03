@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,9 @@
 		F059D2F222F5AC7A00B88FA4 /* Reciplease.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F059D2F022F5AC7A00B88FA4 /* Reciplease.xcdatamodeld */; };
 		F059D2F422F5AC7C00B88FA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F059D2F322F5AC7C00B88FA4 /* Assets.xcassets */; };
 		F059D2F722F5AC7C00B88FA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F059D2F522F5AC7C00B88FA4 /* LaunchScreen.storyboard */; };
+		F0DA94A822F5B38900D2E42F /* EdamamProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DA94A722F5B38900D2E42F /* EdamamProtocol.swift */; };
+		F0DA94AA22F5B3C500D2E42F /* EdamamSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DA94A922F5B3C500D2E42F /* EdamamSession.swift */; };
+		F0DA94AC22F5B48500D2E42F /* EdamamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DA94AB22F5B48500D2E42F /* EdamamService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		F059D2F322F5AC7C00B88FA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F059D2F622F5AC7C00B88FA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F059D2F822F5AC7C00B88FA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0DA94A722F5B38900D2E42F /* EdamamProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamProtocol.swift; sourceTree = "<group>"; };
+		F0DA94A922F5B3C500D2E42F /* EdamamSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamSession.swift; sourceTree = "<group>"; };
+		F0DA94AB22F5B48500D2E42F /* EdamamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +62,6 @@
 				515E59EA34CD8665273D60BF /* Pods-Reciplease.debug.xcconfig */,
 				7D825BD030CE915D90F2AE3D /* Pods-Reciplease.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -81,15 +86,50 @@
 		F059D2E822F5AC7A00B88FA4 /* Reciplease */ = {
 			isa = PBXGroup;
 			children = (
-				F059D2E922F5AC7A00B88FA4 /* AppDelegate.swift */,
-				F059D2EB22F5AC7A00B88FA4 /* ViewController.swift */,
-				F059D2ED22F5AC7A00B88FA4 /* Main.storyboard */,
-				F059D2F322F5AC7C00B88FA4 /* Assets.xcassets */,
-				F059D2F522F5AC7C00B88FA4 /* LaunchScreen.storyboard */,
-				F059D2F822F5AC7C00B88FA4 /* Info.plist */,
-				F059D2F022F5AC7A00B88FA4 /* Reciplease.xcdatamodeld */,
+				F0DA94A322F5B2AC00D2E42F /* Supported Files */,
+				F0DA94A622F5B2D600D2E42F /* Model */,
+				F0DA94A422F5B2BD00D2E42F /* View */,
+				F0DA94A522F5B2CA00D2E42F /* Controller */,
 			);
 			path = Reciplease;
+			sourceTree = "<group>";
+		};
+		F0DA94A322F5B2AC00D2E42F /* Supported Files */ = {
+			isa = PBXGroup;
+			children = (
+				F059D2E922F5AC7A00B88FA4 /* AppDelegate.swift */,
+				F059D2F322F5AC7C00B88FA4 /* Assets.xcassets */,
+				F059D2F822F5AC7C00B88FA4 /* Info.plist */,
+			);
+			path = "Supported Files";
+			sourceTree = "<group>";
+		};
+		F0DA94A422F5B2BD00D2E42F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F059D2ED22F5AC7A00B88FA4 /* Main.storyboard */,
+				F059D2F522F5AC7C00B88FA4 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F0DA94A522F5B2CA00D2E42F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F059D2EB22F5AC7A00B88FA4 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F0DA94A622F5B2D600D2E42F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F059D2F022F5AC7A00B88FA4 /* Reciplease.xcdatamodeld */,
+				F0DA94A722F5B38900D2E42F /* EdamamProtocol.swift */,
+				F0DA94A922F5B3C500D2E42F /* EdamamSession.swift */,
+				F0DA94AB22F5B48500D2E42F /* EdamamService.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,7 +248,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F059D2F222F5AC7A00B88FA4 /* Reciplease.xcdatamodeld in Sources */,
+				F0DA94AA22F5B3C500D2E42F /* EdamamSession.swift in Sources */,
+				F0DA94AC22F5B48500D2E42F /* EdamamService.swift in Sources */,
 				F059D2EC22F5AC7A00B88FA4 /* ViewController.swift in Sources */,
+				F0DA94A822F5B38900D2E42F /* EdamamProtocol.swift in Sources */,
 				F059D2EA22F5AC7A00B88FA4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,7 +401,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NBSSU42XDA;
-				INFOPLIST_FILE = Reciplease/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Reciplease/Supported Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -377,7 +420,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NBSSU42XDA;
-				INFOPLIST_FILE = Reciplease/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Reciplease/Supported Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
