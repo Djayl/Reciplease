@@ -18,8 +18,8 @@ class EdamamService {
     }
     
     private let baseURL = "https://api.edamam.com/search?q="
-    private let appID = "&app_id=7516971f"
-    private let appKey = "&app_key=d750e463751113dc2f24bd3d2d088e96"
+    private let appID = "7516971f"
+    private let appKey = "d750e463751113dc2f24bd3d2d088e96"
     
     
     func createURL(ingredients: [String]) -> URL? {
@@ -31,10 +31,10 @@ class EdamamService {
         
     }
     
-    func searchRecipes(ingredients: [String], completionHandler: @escaping (Bool, Edamam?) -> Void) {
+    func getRecipes(ingredients: [String], completionHandler: @escaping (Bool, Edamam?) -> Void) {
         print(ingredients)
         guard let url = createURL(ingredients: ingredients)else {return}
-        
+        print(url)
         edamamSession.request(url: url) { responseData in
             guard responseData.response?.statusCode == 200 else {
                 completionHandler(false, nil)

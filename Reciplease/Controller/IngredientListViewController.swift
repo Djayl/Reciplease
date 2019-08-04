@@ -56,15 +56,25 @@ class IngredientListViewController: UIViewController {
     }
     
     private func searchRecipes() {
-        edamamService.searchRecipes(ingredients: ingredients) { (success, recipes) in
+        edamamService.getRecipes(ingredients: ingredients) { (success, recipes) in
             if success {
                 print("success")
                 guard let recipes = recipes else {return}
                 self.recipes = recipes
-                
+                self.performSegue(withIdentifier: "recipeListVC", sender: self)
                 
             } else {
                 self.presentAlert(with: "Please, check your connection")
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "recipeListVC" {
+            if let recipes = recipes {
+                if let successVC = segue.destination as? RecipeListTableViewController {
+                    successVC.recipes = recipes
+                }
             }
         }
     }
@@ -80,7 +90,7 @@ extension IngredientListViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientCell", for: indexPath)
         let ingredient = ingredients[indexPath.row]
         cell.textLabel?.text = "\(ingredient)"
         return cell
