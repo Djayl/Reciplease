@@ -13,6 +13,7 @@
 		F059D2F222F5AC7A00B88FA4 /* Reciplease.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F059D2F022F5AC7A00B88FA4 /* Reciplease.xcdatamodeld */; };
 		F059D2F422F5AC7C00B88FA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F059D2F322F5AC7C00B88FA4 /* Assets.xcassets */; };
 		F059D2F722F5AC7C00B88FA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F059D2F522F5AC7C00B88FA4 /* LaunchScreen.storyboard */; };
+		F084A94922F7277F0093F001 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F084A94822F7277F0093F001 /* String.swift */; };
 		F0DA94A822F5B38900D2E42F /* EdamamProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DA94A722F5B38900D2E42F /* EdamamProtocol.swift */; };
 		F0DA94AA22F5B3C500D2E42F /* EdamamSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DA94A922F5B3C500D2E42F /* EdamamSession.swift */; };
 		F0DA94AC22F5B48500D2E42F /* EdamamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DA94AB22F5B48500D2E42F /* EdamamService.swift */; };
@@ -32,6 +33,7 @@
 		F059D2F322F5AC7C00B88FA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F059D2F622F5AC7C00B88FA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F059D2F822F5AC7C00B88FA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F084A94822F7277F0093F001 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		F0DA94A722F5B38900D2E42F /* EdamamProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamProtocol.swift; sourceTree = "<group>"; };
 		F0DA94A922F5B3C500D2E42F /* EdamamSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamSession.swift; sourceTree = "<group>"; };
 		F0DA94AB22F5B48500D2E42F /* EdamamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamService.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				F0DA94B122F5DFEB00D2E42F /* UIViewController.swift */,
+				F084A94822F7277F0093F001 /* String.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				F0DA94B022F5D81200D2E42F /* IngredientListViewController.swift in Sources */,
 				F059D2F222F5AC7A00B88FA4 /* Reciplease.xcdatamodeld in Sources */,
 				F0DA94AE22F5B59100D2E42F /* Edamam.swift in Sources */,
+				F084A94922F7277F0093F001 /* String.swift in Sources */,
 				F0DA94AA22F5B3C500D2E42F /* EdamamSession.swift in Sources */,
 				F0DA94AC22F5B48500D2E42F /* EdamamService.swift in Sources */,
 				F0DA94A822F5B38900D2E42F /* EdamamProtocol.swift in Sources */,

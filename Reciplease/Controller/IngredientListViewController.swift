@@ -20,7 +20,8 @@ class IngredientListViewController: UIViewController {
     
     // MARK: - Action
     @IBAction func didTapAddIngredient(_ sender: UIButton) {
-        ingredientTyped()
+        addIngredient()
+        //ingredientTyped()
         //ingredients.append(ingredientTyped())
         ingredientTextField.text = ""
         print(ingredients)
@@ -32,15 +33,18 @@ class IngredientListViewController: UIViewController {
     @IBAction func didTapSearchRecipes(_ sender: UIButton) {
     }
     
-    private func ingredientTyped() {
-        guard let ingredient = ingredientTextField.text else {return}
-        
-        if ingredient != "" {
-        ingredients.append(ingredient)
-        } else {
+    // MARK: - Methods
+    private func addIngredient() {
+        guard let ingredient = ingredientTextField.text, ingredientTextField.text?.isEmptyOrWhitespace() == false  else {
             presentAlert(with: "Please type an ingredient")
+            return
         }
-   
+        ingredients.append(ingredient)
+        //ingredients = ingredient.components(separatedBy: ", ")
+        
     }
     
+    
 }
+
+
