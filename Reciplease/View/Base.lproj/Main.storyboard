@@ -107,6 +107,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="a5p-M2-8Ea" id="efg-dy-Xyk"/>
+                                    <outlet property="delegate" destination="a5p-M2-8Ea" id="7aR-t5-3vJ"/>
+                                </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="WhB-hV-2Za">
                                 <rect key="frame" x="8" y="502" width="304" height="32"/>
