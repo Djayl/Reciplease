@@ -26,7 +26,7 @@ class IngredientListViewController: UIViewController {
     
     
     // MARK: - Action
-    @IBAction func didTapAddIngredient(_ sender: UIButton) {
+    @IBAction func didTapAddIngredient(_ sender: Any) {
         addIngredient()
         //ingredientTyped()
         //ingredients.append(ingredientTyped())
@@ -35,12 +35,12 @@ class IngredientListViewController: UIViewController {
         
     }
     
-    @IBAction func didTapClearIngredientList(_ sender: UIButton) {
+    @IBAction func didTapClearIngredientList(_ sender: Any) {
         ingredients.removeAll()
         tableView.reloadData()
     }
     
-    @IBAction func didTapSearchRecipes(_ sender: UIButton) {
+    @IBAction func didTapSearchRecipes(_ sender: Any) {
         searchRecipes()
     }
     
@@ -55,7 +55,7 @@ class IngredientListViewController: UIViewController {
         
     }
     
-    private func searchRecipes() {
+    func searchRecipes() {
         edamamService.getRecipes(ingredients: ingredients) { (success, recipes) in
             if success {
                 print("success")

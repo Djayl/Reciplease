@@ -8,14 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		4C1C89DCA029B64C050180BF /* Pods_Reciplease.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA8603A006950A71A3409DB /* Pods_Reciplease.framework */; };
+		F0186BDD22F76F9B00843484 /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0186BDC22F76F9B00843484 /* Time.swift */; };
+		F0186BE022F780EC00843484 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0186BDE22F780EC00843484 /* RecipeTableViewCell.swift */; };
+		F0186BE122F780EC00843484 /* RecipeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0186BDF22F780EC00843484 /* RecipeTableViewCell.xib */; };
+		F0186BE322F7827E00843484 /* RecipeListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0186BE222F7827E00843484 /* RecipeListTableViewController.swift */; };
 		F059D2EA22F5AC7A00B88FA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F059D2E922F5AC7A00B88FA4 /* AppDelegate.swift */; };
 		F059D2EF22F5AC7A00B88FA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F059D2ED22F5AC7A00B88FA4 /* Main.storyboard */; };
 		F059D2F222F5AC7A00B88FA4 /* Reciplease.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F059D2F022F5AC7A00B88FA4 /* Reciplease.xcdatamodeld */; };
 		F059D2F422F5AC7C00B88FA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F059D2F322F5AC7C00B88FA4 /* Assets.xcassets */; };
 		F059D2F722F5AC7C00B88FA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F059D2F522F5AC7C00B88FA4 /* LaunchScreen.storyboard */; };
 		F084A94922F7277F0093F001 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F084A94822F7277F0093F001 /* String.swift */; };
-		F084A94B22F73E150093F001 /* RecipeListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F084A94A22F73E150093F001 /* RecipeListTableViewController.swift */; };
-		F084A94D22F746600093F001 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F084A94C22F746600093F001 /* RecipeTableViewCell.swift */; };
 		F0DA94A822F5B38900D2E42F /* EdamamProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DA94A722F5B38900D2E42F /* EdamamProtocol.swift */; };
 		F0DA94AA22F5B3C500D2E42F /* EdamamSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DA94A922F5B3C500D2E42F /* EdamamSession.swift */; };
 		F0DA94AC22F5B48500D2E42F /* EdamamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DA94AB22F5B48500D2E42F /* EdamamService.swift */; };
@@ -28,6 +30,10 @@
 		1AA8603A006950A71A3409DB /* Pods_Reciplease.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reciplease.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		515E59EA34CD8665273D60BF /* Pods-Reciplease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.debug.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.debug.xcconfig"; sourceTree = "<group>"; };
 		7D825BD030CE915D90F2AE3D /* Pods-Reciplease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.release.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.release.xcconfig"; sourceTree = "<group>"; };
+		F0186BDC22F76F9B00843484 /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
+		F0186BDE22F780EC00843484 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
+		F0186BDF22F780EC00843484 /* RecipeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeTableViewCell.xib; sourceTree = "<group>"; };
+		F0186BE222F7827E00843484 /* RecipeListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListTableViewController.swift; sourceTree = "<group>"; };
 		F059D2E622F5AC7A00B88FA4 /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F059D2E922F5AC7A00B88FA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F059D2EE22F5AC7A00B88FA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -36,8 +42,6 @@
 		F059D2F622F5AC7C00B88FA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F059D2F822F5AC7C00B88FA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F084A94822F7277F0093F001 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		F084A94A22F73E150093F001 /* RecipeListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListTableViewController.swift; sourceTree = "<group>"; };
-		F084A94C22F746600093F001 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
 		F0DA94A722F5B38900D2E42F /* EdamamProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamProtocol.swift; sourceTree = "<group>"; };
 		F0DA94A922F5B3C500D2E42F /* EdamamSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamSession.swift; sourceTree = "<group>"; };
 		F0DA94AB22F5B48500D2E42F /* EdamamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamService.swift; sourceTree = "<group>"; };
@@ -120,7 +124,8 @@
 			children = (
 				F059D2ED22F5AC7A00B88FA4 /* Main.storyboard */,
 				F059D2F522F5AC7C00B88FA4 /* LaunchScreen.storyboard */,
-				F084A94C22F746600093F001 /* RecipeTableViewCell.swift */,
+				F0186BDE22F780EC00843484 /* RecipeTableViewCell.swift */,
+				F0186BDF22F780EC00843484 /* RecipeTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -129,7 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				F0DA94AF22F5D81200D2E42F /* IngredientListViewController.swift */,
-				F084A94A22F73E150093F001 /* RecipeListTableViewController.swift */,
+				F0186BE222F7827E00843484 /* RecipeListTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 			children = (
 				F0DA94B122F5DFEB00D2E42F /* UIViewController.swift */,
 				F084A94822F7277F0093F001 /* String.swift */,
+				F0186BDC22F76F9B00843484 /* Time.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -218,6 +224,7 @@
 				F059D2F722F5AC7C00B88FA4 /* LaunchScreen.storyboard in Resources */,
 				F059D2F422F5AC7C00B88FA4 /* Assets.xcassets in Resources */,
 				F059D2EF22F5AC7A00B88FA4 /* Main.storyboard in Resources */,
+				F0186BE122F780EC00843484 /* RecipeTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,13 +277,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0186BDD22F76F9B00843484 /* Time.swift in Sources */,
+				F0186BE322F7827E00843484 /* RecipeListTableViewController.swift in Sources */,
 				F0DA94B022F5D81200D2E42F /* IngredientListViewController.swift in Sources */,
 				F059D2F222F5AC7A00B88FA4 /* Reciplease.xcdatamodeld in Sources */,
+				F0186BE022F780EC00843484 /* RecipeTableViewCell.swift in Sources */,
 				F0DA94AE22F5B59100D2E42F /* Edamam.swift in Sources */,
 				F084A94922F7277F0093F001 /* String.swift in Sources */,
 				F0DA94AA22F5B3C500D2E42F /* EdamamSession.swift in Sources */,
-				F084A94D22F746600093F001 /* RecipeTableViewCell.swift in Sources */,
-				F084A94B22F73E150093F001 /* RecipeListTableViewController.swift in Sources */,
 				F0DA94AC22F5B48500D2E42F /* EdamamService.swift in Sources */,
 				F0DA94A822F5B38900D2E42F /* EdamamProtocol.swift in Sources */,
 				F0DA94B222F5DFEB00D2E42F /* UIViewController.swift in Sources */,

@@ -9,24 +9,23 @@
 import UIKit
 
 class RecipeListTableViewController: UIViewController {
-    
+
     @IBOutlet var recipeListTableView: UITableView!
+    
     
     let edamamService = EdamamService()
     var recipes: Edamam?
     var hits: [Hit]?
     
-    //var recipeDetail: Recipe?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         recipeListTableView.reloadData()
-        
+        recipeListTableView.register(UINib(nibName: "RecipeTableViewCell", bundle: nil),
+                                  forCellReuseIdentifier: "RecipeTableViewCell")
+        recipeListTableView.reloadData()
     }
     
 }
-
-
 
 extension RecipeListTableViewController: UITableViewDataSource, UITableViewDelegate {
     
@@ -36,11 +35,11 @@ extension RecipeListTableViewController: UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier:"RecipeCell") as? RecipeTableViewCell else {
+        guard let cell =
+            tableView.dequeueReusableCell(withIdentifier:"RecipeTableViewCell")as? RecipeTableViewCell else {
                 return UITableViewCell()}
         guard let recipes = recipes else { return UITableViewCell() }
         cell.recipe = recipes.hits[indexPath.row]
-        
         return cell
     }
     
