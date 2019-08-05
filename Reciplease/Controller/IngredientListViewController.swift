@@ -13,6 +13,9 @@ class IngredientListViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var ingredientTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var searchButton: UIButton!
     
     // MARK: - Properties
     var ingredients = [String]()
@@ -21,17 +24,20 @@ class IngredientListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.reloadData()
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        addButton.layer.cornerRadius = 10
+        clearButton.layer.cornerRadius = 10
+        searchButton.layer.cornerRadius = 10
+        //tableView.reloadData()
     }
     
     
     // MARK: - Action
     @IBAction func didTapAddIngredient(_ sender: Any) {
         addIngredient()
-        //ingredientTyped()
-        //ingredients.append(ingredientTyped())
-        tableView.reloadData()
-        ingredientTextField.text = ""
+        
+        //tableView.reloadData()
+        
         
     }
     
@@ -41,16 +47,29 @@ class IngredientListViewController: UIViewController {
     }
     
     @IBAction func didTapSearchRecipes(_ sender: Any) {
-        searchRecipes()
+        if ingredients.isEmpty {
+            presentAlert(with: "Please, type an ingredient")
+            
+        } else {
+            searchRecipes()
+        }
+        
     }
     
     // MARK: - Methods
     private func addIngredient() {
         guard let ingredient = ingredientTextField.text, ingredientTextField.text?.isEmptyOrWhitespace() == false  else {
-            presentAlert(with: "Please type an ingredient")
+            presentAlert(with: "Please, type an ingredient")
             return
         }
         ingredients.append(ingredient)
+        let indexPath = IndexPath(row: ingredients.count - 1, section: 0)
+        tableView.beginUpdates()
+        tableView.insertRows(at: [indexPath], with: .automatic)
+        tableView.endUpdates()
+        ingredientTextField.text = ""
+        view.endEditing(true)
+        
         //ingredients = ingredient.components(separatedBy: ", ")
         
     }
@@ -58,7 +77,7 @@ class IngredientListViewController: UIViewController {
     func searchRecipes() {
         edamamService.getRecipes(ingredients: ingredients) { (success, recipes) in
             if success {
-                print("success")
+                
                 guard let recipes = recipes else {return}
                 self.recipes = recipes
                 self.performSegue(withIdentifier: "recipeListVC", sender: self)
@@ -96,12 +115,19 @@ extension IngredientListViewController: UITableViewDataSource, UITableViewDelega
         return cell
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle,
                    forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             ingredients.remove(at: indexPath.row)
+            tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .automatic)
-            tableView.reloadData()}
+            tableView.endUpdates()
+            //tableView.reloadData()}
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

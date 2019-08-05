@@ -19,9 +19,10 @@ class RecipeListTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        recipeListTableView.reloadData()
+        //recipeListTableView.reloadData()
         recipeListTableView.register(UINib(nibName: "RecipeTableViewCell", bundle: nil),forCellReuseIdentifier: "RecipeTableViewCell")
-        recipeListTableView.reloadData()
+        //recipeListTableView.reloadData()
+        recipeListTableView.separatorStyle = .none
     }
     
 }

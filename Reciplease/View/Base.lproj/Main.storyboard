@@ -158,7 +158,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Reciplease" id="m9C-fy-2ru"/>
                     <connections>
+                        <outlet property="addButton" destination="YXU-Ab-TkN" id="x2z-Bg-5g6"/>
+                        <outlet property="clearButton" destination="b1M-LB-RRR" id="1m1-Np-ii3"/>
                         <outlet property="ingredientTextField" destination="eEH-pB-9BB" id="nab-yx-glx"/>
+                        <outlet property="searchButton" destination="hVV-ci-ZQO" id="d6V-DJ-y96"/>
                         <outlet property="tableView" destination="KNa-Oe-eFg" id="h7O-YO-fQn"/>
                     </connections>
                 </viewController>

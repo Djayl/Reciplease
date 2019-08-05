@@ -10,7 +10,7 @@ import Foundation
 
 extension Int {
     
-    var convertInt: String {
+    var convertTime: String {
         let hrs = self / 60
         let min = self % 60
         return hrs > 0 ? String(format: "%1dh%02d mn", hrs, min) : String(format: "%1d mn", min)
