@@ -20,36 +20,25 @@ class RecipeTableViewCell: UITableViewCell {
             super.awakeFromNib()
             
         }
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
     
+    func createCell(with recipe: Hit) {
+        recipeNameLabel.text = recipe.recipe.label
+        let calories = recipe.recipe.calories
+        let caloriesToInt = Int(calories)
+        caloriesLabel.text = "\(caloriesToInt)" + " calories"
+        recipeTimeLabel.text = String(recipe.recipe.totalTime / 60) + "min"
+        yieldLabel.text = String(recipe.recipe.yield)
         
-        
-        var recipe: Hit? {
-            didSet {
-                recipeNameLabel.text = recipe?.recipe.label
-                guard let time = recipe?.recipe.totalTime  else {return}
-                let total = time.convertIntToTime
-                recipeTimeLabel.text = total
-                guard let yield = recipe?.recipe.yield  else {return}
-                if yield == 0 {
-                    yieldLabel.text = "NA"
-                } else {
-                    yieldLabel.text = "\( yield)"
-                }
-                guard let image = recipe?.recipe.image else {return}
-                guard let url = URL(string: image) else {return}
-                DispatchQueue.global().async {
-                    let data = try? Data(contentsOf: url)
-                    DispatchQueue.main.async {
-                        self.recipeImageView.image = UIImage(data: data! as Data)
-                    }
-                }
-                guard let calories = recipe?.recipe.calories else {return}
-                let caloriesInt = Int(calories)
-                caloriesLabel.text = "\(caloriesInt)" + " calories"
+        let imageURL = recipe.recipe.image
+        guard let URL = URL(string: imageURL) else {return}
+        DispatchQueue.global().async {
+            let data = try? Data(contentsOf: URL)
+            DispatchQueue.main.async {
+                self.recipeImageView.image = UIImage(data: data! as Data)
             }
         }
+    }
+        
+
         
 }

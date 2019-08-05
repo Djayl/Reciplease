@@ -9,7 +9,7 @@
 import UIKit
 
 class RecipeListTableViewController: UIViewController {
-
+    
     @IBOutlet var recipeListTableView: UITableView!
     
     
@@ -20,8 +20,7 @@ class RecipeListTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         recipeListTableView.reloadData()
-        recipeListTableView.register(UINib(nibName: "RecipeTableViewCell", bundle: nil),
-                                  forCellReuseIdentifier: "RecipeTableViewCell")
+        recipeListTableView.register(UINib(nibName: "RecipeTableViewCell", bundle: nil),forCellReuseIdentifier: "RecipeTableViewCell")
         recipeListTableView.reloadData()
     }
     
@@ -30,16 +29,18 @@ class RecipeListTableViewController: UIViewController {
 extension RecipeListTableViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let recipes = recipes else { return 0 }
+       guard let recipes = recipes else { return 0 }
         return recipes.hits.count
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell =
             tableView.dequeueReusableCell(withIdentifier:"RecipeTableViewCell")as? RecipeTableViewCell else {
                 return UITableViewCell()}
         guard let recipes = recipes else { return UITableViewCell() }
-        cell.recipe = recipes.hits[indexPath.row]
+        let recipe = recipes.hits[indexPath.row]
+        cell.createCell(with: recipe)
         return cell
     }
     
