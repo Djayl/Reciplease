@@ -21,8 +21,8 @@ class RecipeListTableViewController: UIViewController {
         super.viewDidLoad()
         //recipeListTableView.reloadData()
         recipeListTableView.register(UINib(nibName: "RecipeTableViewCell", bundle: nil),forCellReuseIdentifier: "RecipeTableViewCell")
-        //recipeListTableView.reloadData()
         recipeListTableView.separatorStyle = .none
+        //recipeListTableView.reloadData()
     }
     
 }

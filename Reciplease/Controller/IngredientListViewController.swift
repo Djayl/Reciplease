@@ -21,14 +21,16 @@ class IngredientListViewController: UIViewController {
     var ingredients = [String]()
     let edamamService = EdamamService()
     var recipes: Edamam?
+    let userDefault = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ingredients = userDefault.updateIngredientList()
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         addButton.layer.cornerRadius = 10
         clearButton.layer.cornerRadius = 10
         searchButton.layer.cornerRadius = 10
-        //tableView.reloadData()
+        tableView.reloadData()
     }
     
     
@@ -43,6 +45,7 @@ class IngredientListViewController: UIViewController {
     
     @IBAction func didTapClearIngredientList(_ sender: Any) {
         ingredients.removeAll()
+        UserDefaults.standard.set(ingredients, forKey: "myIngredients")
         tableView.reloadData()
     }
     
@@ -63,11 +66,14 @@ class IngredientListViewController: UIViewController {
             return
         }
         ingredients.append(ingredient)
+        
         let indexPath = IndexPath(row: ingredients.count - 1, section: 0)
         tableView.beginUpdates()
         tableView.insertRows(at: [indexPath], with: .automatic)
+        
         tableView.endUpdates()
         ingredientTextField.text = ""
+        UserDefaults.standard.set(ingredients, forKey: "myIngredients")
         view.endEditing(true)
         
         //ingredients = ingredient.components(separatedBy: ", ")
@@ -125,6 +131,7 @@ extension IngredientListViewController: UITableViewDataSource, UITableViewDelega
             ingredients.remove(at: indexPath.row)
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            UserDefaults.standard.set(ingredients, forKey: "myIngredients")
             tableView.endUpdates()
             //tableView.reloadData()}
         }
@@ -141,6 +148,14 @@ extension IngredientListViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return ingredients.isEmpty ? 200 : 0
+    }
+}
+
+extension UserDefaults {
+    
+    func updateIngredientList() -> [String] {
+        guard let ingredients = UserDefaults.standard.array(forKey: "myIngredients") as? [String] else {return []}
+        return ingredients
     }
 }
 

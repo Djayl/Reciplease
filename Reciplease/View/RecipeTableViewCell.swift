@@ -21,25 +21,21 @@ class RecipeTableViewCell: UITableViewCell {
         super.awakeFromNib()
         recipeImageView.layer.cornerRadius = 10
         recipeImageView.layer.masksToBounds = true
-        labelsStackView.layer.cornerRadius = 10
+        
         
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        //Your separatorLineHeight with scalefactor
         let separatorLineHeight: CGFloat = 1/UIScreen.main.scale
-        
         let separator = UIView()
-        
         separator.frame = CGRect(x: self.frame.origin.x,
                                  y: self.frame.size.height - separatorLineHeight,
                                  width: self.frame.size.width,
                                  height: separatorLineHeight)
         
         separator.backgroundColor = .black
-        
         self.addSubview(separator)
     }
     
