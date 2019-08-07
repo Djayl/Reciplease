@@ -86,7 +86,11 @@ class IngredientListViewController: UIViewController {
                 
                 guard let recipes = recipes else {return}
                 self.recipes = recipes
-                self.performSegue(withIdentifier: "recipeListVC", sender: self)
+                guard !recipes.hits.isEmpty else {
+                    self.presentAlert(with: "No recipes found with these ingredients")
+                    return
+                }
+                self.performSegue(withIdentifier: "recipeList", sender: self)
                 
             } else {
                 self.presentAlert(with: "Please, check your connection")
@@ -95,9 +99,9 @@ class IngredientListViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "recipeListVC" {
+        if segue.identifier == "recipeList" {
             if let recipes = recipes {
-                if let successVC = segue.destination as? RecipeListTableViewController {
+                if let successVC = segue.destination as? ListViewController {
                     successVC.recipes = recipes
                 }
             }
