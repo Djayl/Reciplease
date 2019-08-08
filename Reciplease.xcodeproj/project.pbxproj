@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C1C89DCA029B64C050180BF /* Pods_Reciplease.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AA8603A006950A71A3409DB /* Pods_Reciplease.framework */; };
+		F016646A22FC4C2D002D5A5A /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016646922FC4C2D002D5A5A /* RecipeDetailViewController.swift */; };
 		F0186BDD22F76F9B00843484 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0186BDC22F76F9B00843484 /* Int.swift */; };
 		F0186BE022F780EC00843484 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0186BDE22F780EC00843484 /* RecipeTableViewCell.swift */; };
 		F0186BE122F780EC00843484 /* RecipeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0186BDF22F780EC00843484 /* RecipeTableViewCell.xib */; };
@@ -32,6 +33,7 @@
 		1AA8603A006950A71A3409DB /* Pods_Reciplease.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reciplease.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		515E59EA34CD8665273D60BF /* Pods-Reciplease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.debug.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.debug.xcconfig"; sourceTree = "<group>"; };
 		7D825BD030CE915D90F2AE3D /* Pods-Reciplease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.release.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.release.xcconfig"; sourceTree = "<group>"; };
+		F016646922FC4C2D002D5A5A /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
 		F0186BDC22F76F9B00843484 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		F0186BDE22F780EC00843484 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
 		F0186BDF22F780EC00843484 /* RecipeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeTableViewCell.xib; sourceTree = "<group>"; };
@@ -128,8 +130,8 @@
 			children = (
 				F059D2ED22F5AC7A00B88FA4 /* Main.storyboard */,
 				F059D2F522F5AC7C00B88FA4 /* LaunchScreen.storyboard */,
-				F0186BDE22F780EC00843484 /* RecipeTableViewCell.swift */,
 				F0186BDF22F780EC00843484 /* RecipeTableViewCell.xib */,
+				F0186BDE22F780EC00843484 /* RecipeTableViewCell.swift */,
 				F01CB03322FB4150009DC531 /* ListTableViewCell.swift */,
 			);
 			path = View;
@@ -141,6 +143,7 @@
 				F0DA94AF22F5D81200D2E42F /* IngredientListViewController.swift */,
 				F0186BE222F7827E00843484 /* RecipeListTableViewController.swift */,
 				F01CB03122FB405E009DC531 /* ListViewController.swift */,
+				F016646922FC4C2D002D5A5A /* RecipeDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				F0DA94A822F5B38900D2E42F /* EdamamProtocol.swift in Sources */,
 				F0DA94B222F5DFEB00D2E42F /* UIViewController.swift in Sources */,
 				F01CB03222FB405E009DC531 /* ListViewController.swift in Sources */,
+				F016646A22FC4C2D002D5A5A /* RecipeDetailViewController.swift in Sources */,
 				F059D2EA22F5AC7A00B88FA4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

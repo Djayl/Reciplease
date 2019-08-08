@@ -137,7 +137,7 @@ extension IngredientListViewController: UITableViewDataSource, UITableViewDelega
             tableView.deleteRows(at: [indexPath], with: .automatic)
             UserDefaults.standard.set(ingredients, forKey: "myIngredients")
             tableView.endUpdates()
-            //tableView.reloadData()}
+            tableView.reloadData()
         }
     }
     

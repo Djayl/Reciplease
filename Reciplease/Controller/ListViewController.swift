@@ -14,14 +14,23 @@ class ListViewController: UIViewController {
     
     let edamamService = EdamamService()
     var recipes: Edamam?
+    var recipeDetail: Recipe?
     var hits: [Hit]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //recipeListTableView.reloadData()
-//        recipeTableView.register(UINib(nibName: "recipeCell", bundle: nil),forCellReuseIdentifier: "recipeCell")
-        recipeTableView.separatorStyle = .none
-        //recipeListTableView.reloadData()
+        recipeTableView.reloadData()
+
+       
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is RecipeDetailViewController {
+            let vc = segue.destination as? RecipeDetailViewController
+            vc?.setupRecipeCell()
+        }
+        
     }
     
 }
@@ -43,5 +52,12 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
         cell.createCell(with: recipe)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "recipeDetail", sender: self)
+    }
+    
+   
     
 }

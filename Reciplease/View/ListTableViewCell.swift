@@ -11,37 +11,34 @@ import UIKit
 class ListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var recipeView: UIView!
-    
     @IBOutlet weak var recipeImage: UIImageView!
-    
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var caloriesLabel: UILabel!
     @IBOutlet weak var yieldLabel: UILabel!
     
     
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//        recipeView.layer.cornerRadius = 10
+//        recipeView.layer.masksToBounds = true
+//
+//
+//    }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        recipeView.layer.cornerRadius = 10
-        recipeView.layer.masksToBounds = true
-
-
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        let separatorLineHeight: CGFloat = 1/UIScreen.main.scale
-        let separator = UIView()
-        separator.frame = CGRect(x: self.frame.origin.x,
-                                 y: self.frame.size.height - separatorLineHeight,
-                                 width: self.frame.size.width,
-                                 height: separatorLineHeight)
-        
-        separator.backgroundColor = .black
-        self.addSubview(separator)
-    }
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//
+//        let separatorLineHeight: CGFloat = 1/UIScreen.main.scale
+//        let separator = UIView()
+//        separator.frame = CGRect(x: self.frame.origin.x,
+//                                 y: self.frame.size.height - separatorLineHeight,
+//                                 width: self.frame.size.width,
+//                                 height: separatorLineHeight)
+//
+//        separator.backgroundColor = .black
+//        self.addSubview(separator)
+//    }
 
     
     func createCell(with recipe: Hit) {
@@ -54,19 +51,13 @@ class ListTableViewCell: UITableViewCell {
         
         let imageURL = recipe.recipe.image
         guard let URL = URL(string: imageURL) else {return}
-        DispatchQueue.global().async {
+       
             let data = try? Data(contentsOf: URL)
-            DispatchQueue.main.async {
+        
                 self.recipeImage.image = UIImage(data: data! as Data)
             }
-        }
-    }
+    
 
 }
 
-extension UIView {
-    func setRecipeView() {
-        layer.cornerRadius = 10
-        layer.masksToBounds = true
-    }
-}
+
