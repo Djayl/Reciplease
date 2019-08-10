@@ -13,8 +13,6 @@
 		F0186BE022F780EC00843484 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0186BDE22F780EC00843484 /* RecipeTableViewCell.swift */; };
 		F0186BE122F780EC00843484 /* RecipeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0186BDF22F780EC00843484 /* RecipeTableViewCell.xib */; };
 		F0186BE322F7827E00843484 /* RecipeListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0186BE222F7827E00843484 /* RecipeListTableViewController.swift */; };
-		F01CB03222FB405E009DC531 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01CB03122FB405E009DC531 /* ListViewController.swift */; };
-		F01CB03422FB4150009DC531 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01CB03322FB4150009DC531 /* ListTableViewCell.swift */; };
 		F059D2EA22F5AC7A00B88FA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F059D2E922F5AC7A00B88FA4 /* AppDelegate.swift */; };
 		F059D2EF22F5AC7A00B88FA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F059D2ED22F5AC7A00B88FA4 /* Main.storyboard */; };
 		F059D2F222F5AC7A00B88FA4 /* Reciplease.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F059D2F022F5AC7A00B88FA4 /* Reciplease.xcdatamodeld */; };
@@ -38,8 +36,6 @@
 		F0186BDE22F780EC00843484 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
 		F0186BDF22F780EC00843484 /* RecipeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeTableViewCell.xib; sourceTree = "<group>"; };
 		F0186BE222F7827E00843484 /* RecipeListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListTableViewController.swift; sourceTree = "<group>"; };
-		F01CB03122FB405E009DC531 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		F01CB03322FB4150009DC531 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		F059D2E622F5AC7A00B88FA4 /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F059D2E922F5AC7A00B88FA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F059D2EE22F5AC7A00B88FA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -132,7 +128,6 @@
 				F059D2F522F5AC7C00B88FA4 /* LaunchScreen.storyboard */,
 				F0186BDF22F780EC00843484 /* RecipeTableViewCell.xib */,
 				F0186BDE22F780EC00843484 /* RecipeTableViewCell.swift */,
-				F01CB03322FB4150009DC531 /* ListTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -142,7 +137,6 @@
 			children = (
 				F0DA94AF22F5D81200D2E42F /* IngredientListViewController.swift */,
 				F0186BE222F7827E00843484 /* RecipeListTableViewController.swift */,
-				F01CB03122FB405E009DC531 /* ListViewController.swift */,
 				F016646922FC4C2D002D5A5A /* RecipeDetailViewController.swift */,
 			);
 			path = Controller;
@@ -293,12 +287,10 @@
 				F0186BE022F780EC00843484 /* RecipeTableViewCell.swift in Sources */,
 				F0DA94AE22F5B59100D2E42F /* Edamam.swift in Sources */,
 				F084A94922F7277F0093F001 /* String.swift in Sources */,
-				F01CB03422FB4150009DC531 /* ListTableViewCell.swift in Sources */,
 				F0DA94AA22F5B3C500D2E42F /* EdamamSession.swift in Sources */,
 				F0DA94AC22F5B48500D2E42F /* EdamamService.swift in Sources */,
 				F0DA94A822F5B38900D2E42F /* EdamamProtocol.swift in Sources */,
 				F0DA94B222F5DFEB00D2E42F /* UIViewController.swift in Sources */,
-				F01CB03222FB405E009DC531 /* ListViewController.swift in Sources */,
 				F016646A22FC4C2D002D5A5A /* RecipeDetailViewController.swift in Sources */,
 				F059D2EA22F5AC7A00B88FA4 /* AppDelegate.swift in Sources */,
 			);

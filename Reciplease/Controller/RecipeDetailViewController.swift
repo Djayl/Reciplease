@@ -16,7 +16,6 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var recipeTimeLabel: UILabel!
     @IBOutlet weak var recipeCaloriesLabel: UILabel!
     @IBOutlet weak var recipeYieldLabel: UILabel!
-    @IBOutlet weak var ingredientsTextView: UITextView!
     @IBOutlet weak var getDirectionButton: UIButton!
     
     let edamamService = EdamamService()
@@ -25,28 +24,42 @@ class RecipeDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        displayRecipe()
     }
     
-    func setupRecipeCell() {
+    func displayRecipe() {
         guard let recipeDetail = recipeDetail else {return}
-        recipeNameLabel.text = recipeDetail.label
-        let calories = recipeDetail.calories
-        let caloriesToInt = Int(calories)
-        recipeCaloriesLabel.text = "\(caloriesToInt)" + " calories"
-        recipeTimeLabel.text = String(recipeDetail.totalTime.convertTime)
-        recipeYieldLabel.text = "Pour " + String(recipeDetail.yield) + " personnes"
-        for ingredientsLine in recipeDetail.ingredientLines {
-            self.ingredientsTextView.text += "- " + ingredientsLine + "\n"
-        }
+            recipeNameLabel.text = recipeDetail.label
+            let calories = recipeDetail.calories
+            let caloriesToInt = Int(calories)
+            recipeCaloriesLabel.text = "\(caloriesToInt)" + " calories"
+            let time = recipeDetail.totalTime
+            let recipeTime = time.convertTime
+            recipeTimeLabel.text = recipeTime
+            let yield = recipeDetail.yield
+            recipeYieldLabel.text = "Pour " + "\(yield)" + " personnes"
+
+            let imageURL = recipeDetail.image
+            guard let URL = URL(string: imageURL) else {return}
+            let data = try? Data(contentsOf: URL)
+            self.recipeImageView.image = UIImage(data: data! as Data)
         
-        let imageURL = recipeDetail.image
-        guard let URL = URL(string: imageURL) else {return}
-        
-        let data = try? Data(contentsOf: URL)
-        
-        self.recipeImageView.image = UIImage(data: data! as Data)
+}
+    
+}
+
+extension RecipeDetailViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let recipeIngredients = recipeDetail?.ingredientLines else {return 0}
+        return recipeIngredients.count
     }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientsDetailCell", for: indexPath)
+        
+        guard let recipeDetail = recipeDetail else { return UITableViewCell() }
+        cell.textLabel?.text = recipeDetail.ingredientLines[indexPath.row]
+        return cell
     }
     
-
+}

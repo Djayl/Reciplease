@@ -16,13 +16,25 @@ class RecipeListTableViewController: UIViewController {
     let edamamService = EdamamService()
     var recipes: Edamam?
     var hits: [Hit]?
+    var recipeDetail: Recipe?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //recipeListTableView.reloadData()
+        recipeListTableView.reloadData()
         recipeListTableView.register(UINib(nibName: "RecipeTableViewCell", bundle: nil),forCellReuseIdentifier: "RecipeTableViewCell")
-        recipeListTableView.separatorStyle = .none
+        
         //recipeListTableView.reloadData()
+       
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is RecipeDetailViewController {
+            
+            let vc = segue.destination as? RecipeDetailViewController
+            vc?.recipeDetail = recipeDetail
+        }
+        
     }
     
 }
@@ -41,8 +53,14 @@ extension RecipeListTableViewController: UITableViewDataSource, UITableViewDeleg
                 return UITableViewCell()}
         guard let recipes = recipes else { return UITableViewCell() }
         let recipe = recipes.hits[indexPath.row]
-        cell.createCell(with: recipe)
+        cell.recipe = recipe
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+                tableView.deselectRow(at: indexPath, animated: true)
+                recipeDetail = recipes?.hits[indexPath.row].recipe
+                performSegue(withIdentifier: "recipeDetailSegue", sender: self)
+            }
     
 }

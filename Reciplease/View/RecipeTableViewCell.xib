@@ -19,61 +19,77 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BzH-t6-BxF">
+                        <rect key="frame" x="5" y="5" width="365" height="109.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lIU-nE-WlG">
-                        <rect key="frame" x="5" y="0.0" width="370" height="119.5"/>
+                        <rect key="frame" x="5" y="5" width="365" height="109.5"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="3Z2-VM-aNo">
-                                <rect key="frame" x="0.0" y="0.0" width="185" height="119.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="3Z2-VM-aNo" customClass="rec">
+                                <rect key="frame" x="0.0" y="0.0" width="182.5" height="109.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RecipeName" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GNf-gr-lRJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="185" height="24.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="182.5" height="18"/>
                                         <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="14"/>
                                         <color key="textColor" red="0.8980392157" green="0.55294117649999996" blue="0.58431372550000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="okK-zZ-4k2">
-                                        <rect key="frame" x="0.0" y="31.5" width="185" height="22.5"/>
+                                        <rect key="frame" x="0.0" y="25" width="182.5" height="16.5"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
                                         <color key="textColor" red="0.17254901959999999" green="0.40000000000000002" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RecipeTime" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2eK-Jv-2oh">
-                                        <rect key="frame" x="0.0" y="61" width="185" height="22.5"/>
+                                        <rect key="frame" x="0.0" y="48.5" width="182.5" height="17"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
                                         <color key="textColor" red="0.17254901959999999" green="0.40000000000000002" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yield" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOp-Th-ZqZ">
-                                        <rect key="frame" x="0.0" y="90.5" width="185" height="29"/>
+                                        <rect key="frame" x="0.0" y="72.5" width="182.5" height="16.5"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
+                                        <color key="textColor" red="0.17254901959999999" green="0.40000000000000002" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqu-HX-VXl">
+                                        <rect key="frame" x="0.0" y="96" width="182.5" height="13.5"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="11"/>
                                         <color key="textColor" red="0.17254901959999999" green="0.40000000000000002" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o72-ai-BSt">
-                                <rect key="frame" x="185" y="0.0" width="185" height="119.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="o72-ai-BSt">
+                                <rect key="frame" x="182.5" y="0.0" width="182.5" height="109.5"/>
                             </imageView>
                         </subviews>
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="lIU-nE-WlG" secondAttribute="bottom" id="3Gu-Wc-Ycj"/>
-                    <constraint firstAttribute="trailing" secondItem="lIU-nE-WlG" secondAttribute="trailing" id="9YK-Ai-UGE"/>
-                    <constraint firstItem="lIU-nE-WlG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="UGC-5Q-tkb"/>
+                    <constraint firstAttribute="bottom" secondItem="lIU-nE-WlG" secondAttribute="bottom" constant="5" id="3Gu-Wc-Ycj"/>
+                    <constraint firstAttribute="trailing" secondItem="lIU-nE-WlG" secondAttribute="trailing" constant="5" id="9YK-Ai-UGE"/>
+                    <constraint firstItem="lIU-nE-WlG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="UGC-5Q-tkb"/>
                     <constraint firstItem="lIU-nE-WlG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="a6D-ht-gEJ"/>
+                    <constraint firstAttribute="trailing" secondItem="BzH-t6-BxF" secondAttribute="trailing" constant="5" id="fV1-dN-AWI"/>
+                    <constraint firstItem="BzH-t6-BxF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="qvZ-SC-zdX"/>
+                    <constraint firstAttribute="bottom" secondItem="BzH-t6-BxF" secondAttribute="bottom" constant="5" id="rEP-Gt-ikr"/>
+                    <constraint firstItem="BzH-t6-BxF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="rbh-gi-AB1"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="caloriesLabel" destination="okK-zZ-4k2" id="vCF-iY-0Q4"/>
+                <outlet property="ingredientsLabel" destination="hqu-HX-VXl" id="h0W-jN-hxE"/>
                 <outlet property="labelsStackView" destination="3Z2-VM-aNo" id="42S-wz-7YJ"/>
                 <outlet property="recipeImageView" destination="o72-ai-BSt" id="HrQ-RC-jQ8"/>
                 <outlet property="recipeNameLabel" destination="GNf-gr-lRJ" id="D5P-OQ-qPB"/>
                 <outlet property="recipeTimeLabel" destination="2eK-Jv-2oh" id="aoF-ln-M0a"/>
+                <outlet property="recipeView" destination="BzH-t6-BxF" id="8VG-0I-GMU"/>
                 <outlet property="yieldLabel" destination="TOp-Th-ZqZ" id="vqx-Cg-lqA"/>
             </connections>
-            <point key="canvasLocation" x="130.3125" y="147.88732394366198"/>
+            <point key="canvasLocation" x="-140" y="167"/>
         </tableViewCell>
     </objects>
 </document>
