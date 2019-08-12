@@ -50,6 +50,22 @@ class RecipeTableViewCell: UITableViewCell {
         }
     }
     
+    var favoriteRecipes: RecipeEntity? {
+        didSet {
+            recipeNameLabel.text = favoriteRecipes?.label
+            
+            recipeTimeLabel.text = (favoriteRecipes?.totalTime?.convertStringTime)!
+            
+            yieldLabel.text = favoriteRecipes?.yield
+//            ingredients = favoritesRecipes?.ingredient?
+            guard let image = favoriteRecipes?.image else {return}
+            recipeImageView.image = UIImage(data: image as Data)
+            guard let calories = favoriteRecipes?.calories else {return}
+            let caloriesInt = Int(calories)
+            caloriesLabel.text = "\(caloriesInt)" + " calories"
+        }
+    }
+    
     
     
 }

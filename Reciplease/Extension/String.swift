@@ -16,3 +16,12 @@ extension String {
         return (self.trimmingCharacters(in: NSCharacterSet.whitespaces) == "")
     }
 }
+
+extension String {
+    var convertStringTime: String {
+        let hrs = Int(self)! / 60
+        let min = Int(self)! % 60
+        return hrs > 0 ? String(format: "%1dh%02d min", hrs, min) : String(format: "%1d min", min)
+    }
+}
+
