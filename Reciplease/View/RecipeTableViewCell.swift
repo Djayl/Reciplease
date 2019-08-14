@@ -57,7 +57,7 @@ class RecipeTableViewCell: UITableViewCell {
             recipeTimeLabel.text = (favoriteRecipes?.totalTime?.convertStringTime)!
             
             yieldLabel.text = favoriteRecipes?.yield
-//            ingredients = favoritesRecipes?.ingredient?
+            ingredientsLabel.text = favoriteRecipes?.ingredients
             guard let image = favoriteRecipes?.image else {return}
             recipeImageView.image = UIImage(data: image as Data)
             guard let calories = favoriteRecipes?.calories else {return}
