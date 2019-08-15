@@ -49,7 +49,7 @@ extension RecipeListTableViewController: UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell =
-            tableView.dequeueReusableCell(withIdentifier:"RecipeTableViewCell")as? RecipeTableViewCell else {
+            tableView.dequeueReusableCell(withIdentifier:"RecipeTableViewCell") as? RecipeTableViewCell else {
                 return UITableViewCell()}
         guard let recipes = recipes else { return UITableViewCell() }
         let recipe = recipes.hits[indexPath.row]

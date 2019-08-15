@@ -51,13 +51,11 @@ extension FavoriteRecipeTableViewController: UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let customCell = tableView.dequeueReusableCell(withIdentifier:
-            "RecipeTableViewCell", for: indexPath) as? RecipeTableViewCell else {
-                fatalError("error")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeTableViewCell", for: indexPath) as? RecipeTableViewCell else { return UITableViewCell()
         }
         let resultRecipe = favoriteRecipes[indexPath.row]
-        customCell.favoriteRecipes = resultRecipe
-        return customCell
+        cell.favoriteRecipes = resultRecipe
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

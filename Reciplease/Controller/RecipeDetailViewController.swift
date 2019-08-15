@@ -30,23 +30,24 @@ class RecipeDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        if isFavorite {
+        
         displayRecipe()
-//        } else {
-//            displayFavoritesRecipes()
-//            recipeTableView.dataSource = self
-//            recipeTableView.reloadData()
-//        }
-//        if isFavorite {
-//            removeFromFavorite()
-//        } else {
-//            addToFavorite()
-//        }
+        
+        
         getDirectionButton.layer.cornerRadius = 10
         recipeView.layer.cornerRadius = 10
         recipeView.clipsToBounds = true
         labelsView.layer.cornerRadius = 10
         labelsView.clipsToBounds = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if RecipeEntity.recipeIsAlreadyFavorite(with: recipeNameLabel.text!) {
+            favoriteButton.setImage(UIImage(named: "favourite"), for: .normal)
+        } else {
+            favoriteButton.setImage(UIImage(named: "blackStar"), for: .normal)
+        }
     }
     
     func displayRecipe() {
@@ -78,30 +79,31 @@ class RecipeDetailViewController: UIViewController {
         UIApplication.shared.open(url, options: [:])
     }
     
-    fileprivate func handlefavoriteButton() {
-        guard let recipeDetail = recipeDetail else {return}
-        if favoriteButton.isSelected == true {
-            favoriteButton.isSelected = false
-            favoriteButton.setImage(UIImage(named : "blackStar"), for: .normal)
-            RecipeEntity.deleteRecipe(with: recipeNameLabel.text!)
-        } else {
-            favoriteButton.isSelected = true
-            favoriteButton.setImage(UIImage(named : "favourite"), for: .normal)
-            RecipeEntity.add(recipe: recipeDetail)
-            try? AppDelegate.viewContext.save()
-        }
-    }
+    //    fileprivate func handlefavoriteButton() {
+    //        guard let recipeDetail = recipeDetail else {return}
+    //        if favoriteButton.isSelected == true {
+    //            favoriteButton.isSelected = false
+    //            favoriteButton.setImage(UIImage(named : "blackStar"), for: .normal)
+    //            RecipeEntity.deleteRecipe(with: recipeNameLabel.text!)
+    //        } else {
+    //            favoriteButton.isSelected = true
+    //            favoriteButton.setImage(UIImage(named : "favourite"), for: .normal)
+    //            RecipeEntity.add(recipe: recipeDetail)
+    //            try? AppDelegate.viewContext.save()
+    //        }
+    //    }
     
     private func addToFavorite() {
+        
         guard let recipeDetail = recipeDetail else {return}
         isFavorite = true
         favoriteButton.setImage(UIImage(named: "favourite"), for: .normal)
         RecipeEntity.add(recipe: recipeDetail)
         try? AppDelegate.viewContext.save()
+        
     }
     
     private func removeFromFavorite() {
-//        guard let recipeDetail = recipeDetail else {return}
         isFavorite = false
         favoriteButton.setImage(UIImage(named: "blackStar"), for: .normal)
         RecipeEntity.deleteRecipe(with: recipeNameLabel.text!)
@@ -127,7 +129,7 @@ class RecipeDetailViewController: UIViewController {
     }
     
     @IBAction func didTapFavoriteButton(_ sender: Any) {
-
+        
         if isFavorite {
             removeFromFavorite()
         } else {

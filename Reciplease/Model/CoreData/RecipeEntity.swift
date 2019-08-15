@@ -54,4 +54,12 @@ class RecipeEntity: NSManagedObject {
         try? viewContext.save()
     }
     
+    static func recipeIsAlreadyFavorite(with label: String, viewContext: NSManagedObjectContext = AppDelegate.viewContext) -> Bool {
+        let request: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "label = %@", label)
+        guard let recipeEntites = try? viewContext.fetch(request) else { return false }
+        if recipeEntites.isEmpty { return false }
+        return true
+    }
+    
 }
