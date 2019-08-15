@@ -39,7 +39,7 @@ class RecipeEntity: NSManagedObject {
         var myIngredients = [String]()
         for ingredients in recipe.ingredientLines {
             myIngredients.append(ingredients)
-            
+        
         favoriteRecipe.ingredients = myIngredients.description
         }
         try? viewContext.save()
