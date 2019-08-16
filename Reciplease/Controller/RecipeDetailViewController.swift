@@ -30,9 +30,15 @@ class RecipeDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        displayRecipe()
-        
+        if isFavorite == false {
+            displayRecipe()
+        } else {
+            
+            displayFavoritesRecipes()
+            recipeTableView.dataSource = self
+            recipeTableView.reloadData()
+        }
+    
         
         getDirectionButton.layer.cornerRadius = 10
         recipeView.layer.cornerRadius = 10
@@ -79,20 +85,6 @@ class RecipeDetailViewController: UIViewController {
         UIApplication.shared.open(url, options: [:])
     }
     
-    //    fileprivate func handlefavoriteButton() {
-    //        guard let recipeDetail = recipeDetail else {return}
-    //        if favoriteButton.isSelected == true {
-    //            favoriteButton.isSelected = false
-    //            favoriteButton.setImage(UIImage(named : "blackStar"), for: .normal)
-    //            RecipeEntity.deleteRecipe(with: recipeNameLabel.text!)
-    //        } else {
-    //            favoriteButton.isSelected = true
-    //            favoriteButton.setImage(UIImage(named : "favourite"), for: .normal)
-    //            RecipeEntity.add(recipe: recipeDetail)
-    //            try? AppDelegate.viewContext.save()
-    //        }
-    //    }
-    
     private func addToFavorite() {
         
         guard let recipeDetail = recipeDetail else {return}
@@ -103,17 +95,14 @@ class RecipeDetailViewController: UIViewController {
             favoriteButton.setImage(UIImage(named: "favourite"), for: .normal)
             RecipeEntity.add(recipe: recipeDetail)
         }
-//        isFavorite = true
-//        favoriteButton.setImage(UIImage(named: "favourite"), for: .normal)
-//        RecipeEntity.add(recipe: recipeDetail)
-       
         
     }
     
     private func removeFromFavorite() {
+        guard let recipeDetail = recipeDetail else {return}
         isFavorite = false
         favoriteButton.setImage(UIImage(named: "blackStar"), for: .normal)
-        RecipeEntity.deleteRecipe(with: recipeDetail!.label)
+        RecipeEntity.deleteRecipe(with: recipeDetail.label)
     }
     
     func displayFavoritesRecipes() {
@@ -133,32 +122,50 @@ class RecipeDetailViewController: UIViewController {
         //let ingredients = favoriteRecipes[0].ingredients
         
         
+        
     }
     
-//    @IBAction func didTapFavoriteButton(_ sender: Any) {
-//        
-//        if isFavorite {
-//            removeFromFavorite()
-//        } else {
-//            addToFavorite()
-//        }
-//    }
-    
+    @IBAction func didTapFavoriteButton(_ sender: Any) {
+        
+        addToFavorite()
+
+    }
     
 }
-
 extension RecipeDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let recipeIngredients = recipeDetail?.ingredientLines else {return 0}
-        return recipeIngredients.count
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientsDetailCell", for: indexPath)
-        
-        guard let recipeDetail = recipeDetail else { return UITableViewCell() }
-        cell.textLabel?.text = recipeDetail.ingredientLines[indexPath.row]
-        return cell
+        if isFavorite == false {
+            guard let recipeIngredients = recipeDetail?.ingredientLines else {return 0}
+            return recipeIngredients.count
+        } else {
+//            let ingredients = favoriteRecipes
+            return RecipeEntity.fetchAll().count
+            
+            }
+    
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ingredientsDetailCell", for: indexPath)
+        if isFavorite == false {
+            guard let recipeDetail = recipeDetail else { return UITableViewCell() }
+            cell.textLabel?.text = recipeDetail.ingredientLines[indexPath.row]
+            return cell
+        } else {
+            print(favoriteRecipes)
+            let ingredient = favoriteRecipes[indexPath.row].ingredients
+            cell.textLabel?.text = "\(String(describing: ingredient))"
+            
+//            guard let favoriteRecipes = favoriteRecipes else {return UITableViewCell()}
+//            cell.textLabel?.text = favoriteRecipes[indexPath.row].ingredients
+//
+            return cell
+                }
+        }
+
+    
+    
+
 }
+

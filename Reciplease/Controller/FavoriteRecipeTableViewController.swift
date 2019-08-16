@@ -16,7 +16,7 @@ class FavoriteRecipeTableViewController: UIViewController {
     
     var favoriteRecipes = RecipeEntity.fetchAll()
     var recipeDetail: Recipe?
-    
+    var recipes: Edamam?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +38,16 @@ class FavoriteRecipeTableViewController: UIViewController {
     }
     
     
-    func updateFavoriteRecipeDetail(indexPath: IndexPath) {
-        self.favoriteRecipes = [RecipeEntity.fetchAll()[indexPath.row]]
-        
+//    func updateFavoriteRecipeDetail(indexPath: IndexPath) {
+//        self.favoriteRecipes = [RecipeEntity.fetchAll()[indexPath.row]]
+//        self.performSegue(withIdentifier: "showDetailSegue", sender: self)
+//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let detailsVC = segue.destination as? RecipeDetailViewController {
+            detailsVC.favoriteRecipes = favoriteRecipes
+            detailsVC.isFavorite = true
+        }
     }
 }
 
@@ -59,7 +66,10 @@ extension FavoriteRecipeTableViewController: UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let indexPath = tableView.indexPathForSelectedRow else {return}
-        updateFavoriteRecipeDetail(indexPath: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
+        favoriteRecipes = [RecipeEntity.fetchAll()[indexPath.row]]
+        performSegue(withIdentifier: "showDetailSegue", sender: self)
     }
+    
+    
 }
