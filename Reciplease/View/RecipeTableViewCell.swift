@@ -26,7 +26,9 @@ class RecipeTableViewCell: UITableViewCell {
         
     }
     
-    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
     
     
     var recipe: Hit? {
@@ -58,10 +60,13 @@ class RecipeTableViewCell: UITableViewCell {
             
             yieldLabel.text = favoriteRecipes?.yield
             
-            if let ingredients = favoriteRecipes?.ingredients {
-                for ingredient in ingredients {
-                ingredientsLabel.text = ingredient
-            }
+//            guard let ingredients = favoriteRecipes?.ingredients else {return}
+//
+//                for ingredient in ingredients {
+//                ingredientsLabel.text = ingredient
+//            }
+            if let ingredients = favoriteRecipes?.ingredientLine?.allObjects as? [IngredientLine] {
+                ingredientsLabel.text = ingredients.map({$0.name ?? ""}).joined(separator: ", ")
             }
 
            

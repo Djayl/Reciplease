@@ -25,3 +25,10 @@ extension String {
     }
 }
 
+extension String {
+    var transformToArray: [String] {
+        return
+            self.components(separatedBy: .punctuationCharacters).joined().components(separatedBy: "\n").filter {!$0.isEmpty }
+    }
+}
+

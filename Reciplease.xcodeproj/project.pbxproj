@@ -13,6 +13,7 @@
 		F0186BE022F780EC00843484 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0186BDE22F780EC00843484 /* RecipeTableViewCell.swift */; };
 		F0186BE122F780EC00843484 /* RecipeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0186BDF22F780EC00843484 /* RecipeTableViewCell.xib */; };
 		F0186BE322F7827E00843484 /* RecipeListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0186BE222F7827E00843484 /* RecipeListTableViewController.swift */; };
+		F01B806C2309AA11001A2062 /* IngredientLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01B806B2309AA11001A2062 /* IngredientLine.swift */; };
 		F01BD4172301993D004CDD1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F01BD4162301993D004CDD1E /* Main.storyboard */; };
 		F01BD41B23019BE3004CDD1E /* FavoriteRecipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01BD41A23019BE3004CDD1E /* FavoriteRecipeTableViewController.swift */; };
 		F01BD41D23019C65004CDD1E /* RecipeEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01BD41C23019C65004CDD1E /* RecipeEntity.swift */; };
@@ -38,6 +39,7 @@
 		F0186BDE22F780EC00843484 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
 		F0186BDF22F780EC00843484 /* RecipeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeTableViewCell.xib; sourceTree = "<group>"; };
 		F0186BE222F7827E00843484 /* RecipeListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListTableViewController.swift; sourceTree = "<group>"; };
+		F01B806B2309AA11001A2062 /* IngredientLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientLine.swift; sourceTree = "<group>"; };
 		F01BD4162301993D004CDD1E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F01BD41A23019BE3004CDD1E /* FavoriteRecipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipeTableViewController.swift; sourceTree = "<group>"; };
 		F01BD41C23019C65004CDD1E /* RecipeEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeEntity.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			children = (
 				F059D2F022F5AC7A00B88FA4 /* Reciplease.xcdatamodeld */,
 				F01BD41C23019C65004CDD1E /* RecipeEntity.swift */,
+				F01B806B2309AA11001A2062 /* IngredientLine.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F01B806C2309AA11001A2062 /* IngredientLine.swift in Sources */,
 				F0186BDD22F76F9B00843484 /* Int.swift in Sources */,
 				F01BD41B23019BE3004CDD1E /* FavoriteRecipeTableViewController.swift in Sources */,
 				F0186BE322F7827E00843484 /* RecipeListTableViewController.swift in Sources */,

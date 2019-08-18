@@ -33,13 +33,19 @@ class RecipeEntity: NSManagedObject {
         guard let url = URL(string: imageURL) else {return}
         let imageData = try? Data(contentsOf: url)
         favoriteRecipe.image = imageData
-        
         favoriteRecipe.url = recipe.url
         favoriteRecipe.calories = recipe.calories
 
-        favoriteRecipe.ingredients = recipe.ingredientLines
-
+        IngredientLine.add(viewContext: viewContext, recipe: favoriteRecipe, ingredientLine: recipe.ingredientLines)
+        
         try? viewContext.save()
+    }
+    
+    static func fetchRecipe (label: String, viewContext: NSManagedObjectContext = AppDelegate.viewContext) -> [RecipeEntity] {
+        let request: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
+        request.predicate = NSPredicate(format: "label = %@", label)
+        guard let favoriteRecipes = try? viewContext.fetch(request) else {return []}
+        return favoriteRecipes
     }
     
     static func deleteRecipe(with label: String, viewContext: NSManagedObjectContext = AppDelegate.viewContext) {

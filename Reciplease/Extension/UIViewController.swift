@@ -17,3 +17,19 @@ extension UIViewController {
         present(alertVC, animated: true, completion: nil)
     }
 }
+
+extension FavoriteRecipeTableViewController {
+    
+    func deleteAlert(message: String) {
+        let alertVC = UIAlertController(title: "Watch out!", message: message, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "Yes", style: .default,
+                                        handler: {(_) in
+                                            RecipeEntity.deleteAll()
+                                            self.favoriteRecipes.removeAll()
+                                            self.tableView.reloadData()
+        }))
+        alertVC.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        self.present(alertVC, animated: true, completion: nil)
+    }
+}
+
