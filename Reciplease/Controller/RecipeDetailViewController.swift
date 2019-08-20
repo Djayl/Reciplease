@@ -11,7 +11,9 @@ import CoreData
 
 class RecipeDetailViewController: UIViewController {
     
-    @IBOutlet weak var recipeView: UIView!
+    // MARK: - Outlets
+    
+    @IBOutlet private weak var recipeView: UIView!
     @IBOutlet weak var recipeImageView: UIImageView!
     @IBOutlet weak var recipeNameLabel: UILabel!
     @IBOutlet weak var recipeTimeLabel: UILabel!
@@ -23,12 +25,12 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var recipeTableView: UITableView!
     @IBOutlet weak var shareButton: UIButton!
     
-    let edamamService = EdamamService()
+    private let edamamService = EdamamService()
     var recipes: Edamam?
     var recipeDetail: Recipe?
     var favoriteRecipes: [RecipeEntity] = RecipeEntity.fetchAll()
     var isFavorite = false
-   
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +60,7 @@ class RecipeDetailViewController: UIViewController {
     }
     
     
-    func displayRecipe() {
+    private func displayRecipe() {
         guard let recipeDetail = recipeDetail else {return}
         recipeNameLabel.text = recipeDetail.label
         let calories = recipeDetail.calories
@@ -77,7 +79,7 @@ class RecipeDetailViewController: UIViewController {
         
     }
     
-    @IBAction func didTapGetDirectionButton(_ sender: Any) {
+    @IBAction private func didTapGetDirectionButton(_ sender: Any) {
         if isFavorite == false {
             guard let recipeDetail = recipeDetail else {return}
             guard let url = URL(string: recipeDetail.url) else {return}
@@ -86,21 +88,22 @@ class RecipeDetailViewController: UIViewController {
             guard let urlSource = favoriteRecipes[0].url else {return}
             guard let url = URL(string: urlSource) else {return}
             UIApplication.shared.open(url, options: [:])
-    }
+        }
     }
     
-    @IBAction func didTapShareButton(_ sender: Any) {
+    @IBAction private func didTapShareButton(_ sender: Any) {
         //Set the default sharing message.
-        let message = "Message goes here"
+        let message = "Check out this recipe!"
         //Set the link to share.
         guard let recipeDetail = recipeDetail else {return}
         guard let link = NSURL(string: recipeDetail.url) else {return}
         
-            let objectsToShare = [message,link] as [Any]
-            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-            present(activityVC, animated: true, completion: nil)
+        let objectsToShare = [message,link] as [Any]
+        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        present(activityVC, animated: true, completion: nil)
     }
     
+    /// Comment
     private func addToFavorite() {
         guard let recipeDetail = recipeDetail else {return}
         if RecipeEntity.recipeIsAlreadyFavorite(with: recipeDetail.label) {
@@ -126,8 +129,7 @@ class RecipeDetailViewController: UIViewController {
         let recipeTime = time?.convertStringTime
         recipeTimeLabel.text = recipeTime
         if let yield = favoriteRecipes[0].yield {
-        
-        recipeYieldLabel.text = "Pour " + "\(yield)" + " personnes"
+            recipeYieldLabel.text = "Pour " + "\(yield)" + " personnes"
         }
         if let imageData = favoriteRecipes[0].image, let image = UIImage(data: imageData) {
             recipeImageView.image = image
@@ -143,6 +145,8 @@ class RecipeDetailViewController: UIViewController {
     }
     
 }
+
+// MARK: - Extension
 
 extension RecipeDetailViewController: UITableViewDataSource {
     

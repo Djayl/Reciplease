@@ -31,7 +31,12 @@ class FavoriteRecipeTableViewController: UIViewController {
     }
     
     @IBAction func didTapDeleteButton(_ sender: Any) {
-        deleteAlert(message: "You are trying to delete all your favorites. Are you sure ?")
+        //deleteAlert(message: "You are trying to delete all your favorites. Are you sure ?")
+        presentAlertWithAction(message: "You are trying to delete all your favorites. Are you sure ?") {
+            RecipeEntity.deleteAll()
+            self.favoriteRecipes.removeAll()
+            self.tableView.reloadData()
+        }
         tableView.reloadData()
     }
 
@@ -93,6 +98,8 @@ extension FavoriteRecipeTableViewController: UITableViewDataSource, UITableViewD
         return favoriteRecipes.isEmpty ? 200 : 0
     }
 }
+
+
     
     
 
