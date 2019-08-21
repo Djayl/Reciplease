@@ -24,7 +24,7 @@ class RecipeListTableViewController: UIViewController {
         recipeListTableView.reloadData()
         recipeListTableView.register(UINib(nibName: "RecipeTableViewCell", bundle: nil),forCellReuseIdentifier: "RecipeTableViewCell")
         
-        //recipeListTableView.reloadData()
+        recipeListTableView.reloadData()
        
     }
     

@@ -16,6 +16,7 @@ class IngredientListViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Properties
     var ingredients = [String]()
@@ -52,11 +53,9 @@ class IngredientListViewController: UIViewController {
     @IBAction func didTapSearchRecipes(_ sender: Any) {
         if ingredients.isEmpty {
             presentAlert(with: "Please, type an ingredient")
-            
         } else {
             searchRecipes()
         }
-        
     }
     
     // MARK: - Methods
@@ -65,6 +64,7 @@ class IngredientListViewController: UIViewController {
             presentAlert(with: "Please, type an ingredient")
             return
         }
+       
         ingredients.append(ingredient)
         
         let indexPath = IndexPath(row: ingredients.count - 1, section: 0)
@@ -76,14 +76,20 @@ class IngredientListViewController: UIViewController {
         UserDefaults.standard.set(ingredients, forKey: "myIngredients")
         view.endEditing(true)
         
-        //ingredients = ingredient.components(separatedBy: ", ")
         
     }
     
+    private func toggleActivityIndicator(shown: Bool) {
+        searchButton.isHidden = shown
+        clearButton.isHidden = shown
+        activityIndicator.isHidden = !shown
+    }
+    
     func searchRecipes() {
+        toggleActivityIndicator(shown: true)
         edamamService.getRecipes(ingredients: ingredients) { (success, recipes) in
             if success {
-                
+                self.toggleActivityIndicator(shown: false)
                 guard let recipes = recipes else {return}
                 self.recipes = recipes
                 guard !recipes.hits.isEmpty else {
@@ -94,6 +100,7 @@ class IngredientListViewController: UIViewController {
                 
             } else {
                 self.presentAlert(with: "Please, check your connection")
+                self.toggleActivityIndicator(shown: false)
             }
         }
     }

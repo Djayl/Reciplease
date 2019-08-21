@@ -24,6 +24,9 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var recipeTableView: UITableView!
     @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var favoriteButtonItem: UIBarButtonItem!
+    
+    // MARK: - Properties
     
     private let edamamService = EdamamService()
     var recipes: Edamam?
@@ -38,7 +41,6 @@ class RecipeDetailViewController: UIViewController {
             displayRecipe()
         } else {
             displayFavoritesRecipes()
-            favoriteButton.isHidden = true
             recipeTableView.dataSource = self
             recipeTableView.reloadData()
         }
@@ -51,14 +53,15 @@ class RecipeDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        guard let recipeDetail = recipeDetail else {return}
-        if RecipeEntity.recipeIsAlreadyFavorite(with: recipeDetail.label) {
-            favoriteButton.setImage(UIImage(named: "favourite"), for: .normal)
+        
+        if RecipeEntity.recipeIsAlreadyFavorite(with: recipeNameLabel.text!) {
+            favoriteButtonItem.tintColor = UIColor.red
         } else {
-            favoriteButton.setImage(UIImage(named: "blackStar"), for: .normal)
+            favoriteButtonItem.tintColor = .black
         }
     }
     
+    // MARK: - Methods
     
     private func displayRecipe() {
         guard let recipeDetail = recipeDetail else {return}
@@ -103,16 +106,29 @@ class RecipeDetailViewController: UIViewController {
         present(activityVC, animated: true, completion: nil)
     }
     
-    /// Comment
+    /// Method for adding a recipe into the favorite list
     private func addToFavorite() {
-        guard let recipeDetail = recipeDetail else {return}
-        if RecipeEntity.recipeIsAlreadyFavorite(with: recipeDetail.label) {
-            favoriteButton.setImage(UIImage(named: "blackStar"), for: .normal)
-            RecipeEntity.deleteRecipe(with: recipeDetail.label)
+//        guard let recipeDetail = recipeDetail else {return}
+//        if RecipeEntity.recipeIsAlreadyFavorite(with: recipeDetail.label) {
+//            favoriteButton.setImage(UIImage(named: "blackStar"), for: .normal)
+//            RecipeEntity.deleteRecipe(with: recipeDetail.label)
+//
+//        } else {
+//
+//            favoriteButton.setImage(UIImage(named: "favourite"), for: .normal)
+//            RecipeEntity.add(recipe: recipeDetail)
+//
+//        }
+        if RecipeEntity.recipeIsAlreadyFavorite(with: recipeNameLabel.text!) {
+            RecipeEntity.deleteRecipe(with: recipeNameLabel.text!)
+            favoriteButtonItem.tintColor = .black
+            _ = navigationController?.popViewController(animated: true)
         } else {
-            favoriteButton.setImage(UIImage(named: "favourite"), for: .normal)
+            guard let recipeDetail = recipeDetail else {return}
             RecipeEntity.add(recipe: recipeDetail)
+            favoriteButtonItem.tintColor = .red
         }
+
     }
     
     private func removeFromFavorite() {
@@ -140,13 +156,12 @@ class RecipeDetailViewController: UIViewController {
         
     }
     
-    @IBAction func didTapFavoriteButton(_ sender: Any) {
+    @IBAction func didTapFavoriteButtonItem(_ sender: UIBarButtonItem) {
         addToFavorite()
     }
-    
 }
 
-// MARK: - Extension
+// MARK: - Data Source Extension for the Table View
 
 extension RecipeDetailViewController: UITableViewDataSource {
     
@@ -157,9 +172,7 @@ extension RecipeDetailViewController: UITableViewDataSource {
         } else {
             let recipeIngredients = IngredientLine.fetchAll()
             return recipeIngredients.count
-            
         }
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -175,9 +188,7 @@ extension RecipeDetailViewController: UITableViewDataSource {
             guard let name = direction.name else {return cell}
             cell.textLabel?.text = name
             return cell
-            
         }
     }
-    
 }
 

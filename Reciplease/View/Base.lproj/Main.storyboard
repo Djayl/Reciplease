@@ -65,7 +65,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="G9M-W7-kYm">
                                         <rect key="frame" x="8" y="52" width="398" height="30"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tap here your ingredients" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eEH-pB-9BB">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tap here your ingredients one by one" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eEH-pB-9BB">
                                                 <rect key="frame" x="0.0" y="0.0" width="328" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -105,7 +105,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KNa-Oe-eFg">
-                                <rect key="frame" x="0.0" y="162" width="414" height="424"/>
+                                <rect key="frame" x="0.0" y="162" width="414" height="419"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IngredientCell" textLabel="Kpp-e9-BhQ" style="IBUITableViewCellStyleDefault" id="e9H-bd-Ole">
@@ -132,10 +132,10 @@
                                 </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="WhB-hV-2Za">
-                                <rect key="frame" x="8" y="621" width="398" height="32"/>
+                                <rect key="frame" x="8" y="616" width="398" height="37"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1M-LB-RRR">
-                                        <rect key="frame" x="0.0" y="0.0" width="191.66666666666666" height="32"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="191.66666666666666" height="37"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                         <state key="normal" title="Clear">
@@ -145,8 +145,12 @@
                                             <action selector="didTapClearIngredientList:" destination="a5p-M2-8Ea" eventType="touchUpInside" id="BC9-Ck-9fX"/>
                                         </connections>
                                     </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="e8U-Dg-pXF">
+                                        <rect key="frame" x="199" y="0.0" width="0.0" height="37"/>
+                                        <color key="color" red="0.69559133049999999" green="0.18600329760000001" blue="0.39608550069999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </activityIndicatorView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVV-ci-ZQO">
-                                        <rect key="frame" x="206.66666666666663" y="0.0" width="191.33333333333337" height="32"/>
+                                        <rect key="frame" x="206.66666666666663" y="0.0" width="191.33333333333337" height="37"/>
                                         <color key="backgroundColor" red="0.63583433629999997" green="0.86580711600000004" blue="0.68232828379999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                         <state key="normal" title="Search recipes">
@@ -176,6 +180,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Reciplease" id="m9C-fy-2ru"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="e8U-Dg-pXF" id="x2y-vo-d72"/>
                         <outlet property="addButton" destination="YXU-Ab-TkN" id="x2z-Bg-5g6"/>
                         <outlet property="clearButton" destination="b1M-LB-RRR" id="1m1-Np-ii3"/>
                         <outlet property="ingredientTextField" destination="eEH-pB-9BB" id="nab-yx-glx"/>
@@ -260,7 +265,7 @@
         <!--Recipe Detail View Controller-->
         <scene sceneID="qnn-xK-Oeq">
             <objects>
-                <viewController id="eTZ-OE-Iap" customClass="RecipeDetailViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecipeDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="eTZ-OE-Iap" customClass="RecipeDetailViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BbB-nV-Yv2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -291,25 +296,12 @@
                                             <constraint firstAttribute="height" constant="120" id="fAU-es-KQN"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJC-Xd-Gq9">
-                                        <rect key="frame" x="369" y="8" width="27" height="27"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="27" id="fSe-5F-jfU"/>
-                                            <constraint firstAttribute="height" constant="27" id="zw4-c3-GXp"/>
-                                        </constraints>
-                                        <state key="normal" image="blackStar"/>
-                                        <connections>
-                                            <action selector="didTapFavoriteButton:" destination="eTZ-OE-Iap" eventType="touchUpInside" id="Qpv-ZL-NqF"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="sJC-Xd-Gq9" secondAttribute="trailing" constant="8" id="53n-Cx-HVT"/>
                                     <constraint firstItem="lOn-ze-tZj" firstAttribute="top" secondItem="dLf-iG-vcx" secondAttribute="top" id="DaD-fk-qhV"/>
                                     <constraint firstItem="lOn-ze-tZj" firstAttribute="leading" secondItem="dLf-iG-vcx" secondAttribute="leading" id="RQM-fL-paZ"/>
                                     <constraint firstAttribute="trailing" secondItem="lOn-ze-tZj" secondAttribute="trailing" id="rHl-62-eVU"/>
-                                    <constraint firstItem="sJC-Xd-Gq9" firstAttribute="top" secondItem="dLf-iG-vcx" secondAttribute="top" constant="8" id="ueS-8q-Sdb"/>
                                     <constraint firstAttribute="height" constant="120" id="zzj-aK-L1n"/>
                                 </constraints>
                             </view>
@@ -424,8 +416,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Iee-qw-2aF"/>
                     </view>
+                    <navigationItem key="navigationItem" id="xBg-iz-enI">
+                        <barButtonItem key="rightBarButtonItem" image="favorite (1)" id="69O-e4-4Id">
+                            <connections>
+                                <action selector="didTapFavoriteButtonItem:" destination="eTZ-OE-Iap" id="irX-Xm-o7a"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="favoriteButton" destination="sJC-Xd-Gq9" id="JO0-Ld-ZrN"/>
+                        <outlet property="favoriteButtonItem" destination="69O-e4-4Id" id="Obt-xx-5Kq"/>
                         <outlet property="getDirectionButton" destination="IEb-5G-2Cy" id="5r1-mG-OzN"/>
                         <outlet property="labelsView" destination="XUf-Y1-MPL" id="cUP-ZM-vtJ"/>
                         <outlet property="recipeCaloriesLabel" destination="jHb-PD-AJw" id="pgy-11-6e9"/>
@@ -444,13 +444,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="blackStar" width="170.66667175292969" height="170.66667175292969"/>
         <image name="delete (1)" width="21.333333969116211" height="21.333333969116211"/>
+        <image name="favorite (1)" width="21.333333969116211" height="21.333333969116211"/>
         <image name="magnifier" width="21.333333969116211" height="21.333333969116211"/>
         <image name="rating" width="21.333333969116211" height="21.333333969116211"/>
         <image name="share" width="21.333333969116211" height="21.333333969116211"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="a1N-cm-mmR"/>
+        <segue reference="nCq-le-aBk"/>
     </inferredMetricsTieBreakers>
 </document>

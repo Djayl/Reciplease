@@ -31,7 +31,6 @@ class FavoriteRecipeTableViewController: UIViewController {
     }
     
     @IBAction func didTapDeleteButton(_ sender: Any) {
-        //deleteAlert(message: "You are trying to delete all your favorites. Are you sure ?")
         presentAlertWithAction(message: "You are trying to delete all your favorites. Are you sure ?") {
             RecipeEntity.deleteAll()
             self.favoriteRecipes.removeAll()
@@ -39,6 +38,8 @@ class FavoriteRecipeTableViewController: UIViewController {
         }
         tableView.reloadData()
     }
+    
+   
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -65,6 +66,7 @@ extension FavoriteRecipeTableViewController: UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
         favoriteRecipes = [RecipeEntity.fetchAll()[indexPath.row]]
         performSegue(withIdentifier: "showDetailSegue", sender: self)
     }
