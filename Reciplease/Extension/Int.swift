@@ -8,8 +8,8 @@
 
 import Foundation
 
+/// Method that converts time from Int to String
 extension Int {
-    
     var convertTime: String {
         let hrs = self / 60
         let min = self % 60

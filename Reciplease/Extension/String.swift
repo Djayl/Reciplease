@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Method that checks if there are empty or white spaces in the textfield
 extension String {
     func isEmptyOrWhitespace() -> Bool {
         if(self.isEmpty) {
@@ -17,6 +18,7 @@ extension String {
     }
 }
 
+/// Method that converts time in String
 extension String {
     var convertStringTime: String {
         let hrs = Int(self)! / 60
@@ -25,10 +27,4 @@ extension String {
     }
 }
 
-extension String {
-    var transformToArray: [String] {
-        return
-            self.components(separatedBy: .punctuationCharacters).joined().components(separatedBy: "\n").filter {!$0.isEmpty }
-    }
-}
 

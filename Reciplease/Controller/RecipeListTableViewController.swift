@@ -10,8 +10,11 @@ import UIKit
 
 class RecipeListTableViewController: UIViewController {
     
+    // MARK: - Outlets
+    
     @IBOutlet var recipeListTableView: UITableView!
     
+    // MARK: - Properties
     
     let edamamService = EdamamService()
     var recipes: Edamam?
@@ -23,26 +26,23 @@ class RecipeListTableViewController: UIViewController {
         super.viewDidLoad()
         recipeListTableView.reloadData()
         recipeListTableView.register(UINib(nibName: "RecipeTableViewCell", bundle: nil),forCellReuseIdentifier: "RecipeTableViewCell")
-        
         recipeListTableView.reloadData()
-       
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is RecipeDetailViewController {
-            
             let vc = segue.destination as? RecipeDetailViewController
             vc?.recipeDetail = recipeDetail
         }
-        
     }
-    
 }
+
+// MARK: - DataSource and delegate extension
 
 extension RecipeListTableViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       guard let recipes = recipes else { return 0 }
+        guard let recipes = recipes else { return 0 }
         return recipes.hits.count
     }
     
@@ -58,9 +58,9 @@ extension RecipeListTableViewController: UITableViewDataSource, UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-                tableView.deselectRow(at: indexPath, animated: true)
-                recipeDetail = recipes?.hits[indexPath.row].recipe
-                performSegue(withIdentifier: "recipeDetailSegue", sender: self)
-            }
+        tableView.deselectRow(at: indexPath, animated: true)
+        recipeDetail = recipes?.hits[indexPath.row].recipe
+        performSegue(withIdentifier: "recipeDetailSegue", sender: self)
+    }
     
 }

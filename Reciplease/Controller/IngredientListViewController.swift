@@ -11,6 +11,7 @@ import UIKit
 class IngredientListViewController: UIViewController {
     
     // MARK: - Outlets
+    
     @IBOutlet weak var ingredientTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addButton: UIButton!
@@ -19,6 +20,7 @@ class IngredientListViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Properties
+    
     var ingredients = [String]()
     let edamamService = EdamamService()
     var recipes: Edamam?
@@ -35,13 +37,11 @@ class IngredientListViewController: UIViewController {
     }
     
     
-    // MARK: - Action
+    // MARK: - Actions
+    
     @IBAction func didTapAddIngredient(_ sender: Any) {
         addIngredient()
-        
         //tableView.reloadData()
-        
-        
     }
     
     @IBAction func didTapClearIngredientList(_ sender: Any) {
@@ -59,24 +59,21 @@ class IngredientListViewController: UIViewController {
     }
     
     // MARK: - Methods
+    
+    /// Method for adding an ingredient in the list before the search
     private func addIngredient() {
         guard let ingredient = ingredientTextField.text, ingredientTextField.text?.isEmptyOrWhitespace() == false  else {
             presentAlert(with: "Please, type an ingredient")
             return
         }
-       
         ingredients.append(ingredient)
-        
         let indexPath = IndexPath(row: ingredients.count - 1, section: 0)
         tableView.beginUpdates()
         tableView.insertRows(at: [indexPath], with: .automatic)
-        
         tableView.endUpdates()
         ingredientTextField.text = ""
         UserDefaults.standard.set(ingredients, forKey: "myIngredients")
         view.endEditing(true)
-        
-        
     }
     
     private func toggleActivityIndicator(shown: Bool) {
@@ -85,6 +82,7 @@ class IngredientListViewController: UIViewController {
         activityIndicator.isHidden = !shown
     }
     
+    /// Method for search recipes
     func searchRecipes() {
         toggleActivityIndicator(shown: true)
         edamamService.getRecipes(ingredients: ingredients) { (success, recipes) in
@@ -105,6 +103,7 @@ class IngredientListViewController: UIViewController {
         }
     }
     
+    /// Method to go to the recipe list page
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "recipeListSegue" {
             if let recipes = recipes {
@@ -114,13 +113,11 @@ class IngredientListViewController: UIViewController {
             }
         }
     }
-    
-    
 }
 
+// MARK: - DataSource and Delegate extension
+
 extension IngredientListViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ingredients.count
     }
@@ -162,12 +159,6 @@ extension IngredientListViewController: UITableViewDataSource, UITableViewDelega
     }
 }
 
-extension UserDefaults {
-    
-    func updateIngredientList() -> [String] {
-        guard let ingredients = UserDefaults.standard.array(forKey: "myIngredients") as? [String] else {return []}
-        return ingredients
-    }
-}
+
 
 

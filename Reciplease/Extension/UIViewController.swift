@@ -17,6 +17,7 @@ extension UIViewController {
         present(alertVC, animated: true, completion: nil)
     }
     
+    /// Method that presents an alert with an action
     func presentAlertWithAction(message: String, actionHandler: @escaping () -> Void) {
         let alertVC = UIAlertController(title: "Watch out!", message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in

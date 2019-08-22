@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 
 class EdamamSession: EdamamProtocol {
+    
     func request(url: URL, completionHandler: @escaping (DataResponse<Any>) -> Void) {
         Alamofire.request(url).responseJSON { responseData in
             completionHandler(responseData)

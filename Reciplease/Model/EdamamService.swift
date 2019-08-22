@@ -11,6 +11,8 @@ import Alamofire
 
 class EdamamService {
     
+    // MARK: - Properties
+    
     private let edamamSession: EdamamProtocol
     
     init(edamamSession: EdamamProtocol = EdamamSession()) {
@@ -21,18 +23,19 @@ class EdamamService {
     private let appID = "7516971f"
     private let appKey = "d750e463751113dc2f24bd3d2d088e96"
     
+    // MARK: - Methods
     
+    /// Creation of the url for the network call
     func createURL(ingredients: [String]) -> URL? {
         let parameters = ingredients.joined(separator: "+")
         let myURL = "\(baseURL)\(parameters)&app_id=\(appID)&app_key=\(appKey)"
         let myURL2 = myURL.replacingOccurrences(of: " ", with: "")
         
         guard let url = URL(string: myURL2) else { return nil }
-        
         return url
-        
     }
     
+    /// Creation of the network call with Alamo Fire to get the API datas
     func getRecipes(ingredients: [String], completionHandler: @escaping (Bool, Edamam?) -> Void) {
         print(ingredients)
         guard let url = createURL(ingredients: ingredients)else {return}
@@ -52,5 +55,4 @@ class EdamamService {
             completionHandler(true, recipes)
         }
     }
-    
 }

@@ -10,6 +10,8 @@ import UIKit
 
 class RecipeTableViewCell: UITableViewCell {
     
+    // MARK: - Outlets
+    
     @IBOutlet weak var recipeNameLabel: UILabel!
     @IBOutlet weak var caloriesLabel: UILabel!
     @IBOutlet weak var recipeTimeLabel: UILabel!
@@ -23,14 +25,15 @@ class RecipeTableViewCell: UITableViewCell {
         super.awakeFromNib()
         recipeView.layer.cornerRadius = 10
         recipeView.clipsToBounds = true
-        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
+    // MARK: - Methods
     
+    /// Method to assign each outlet the right data
     var recipe: Hit? {
         didSet {
             recipeNameLabel.text = recipe?.recipe.label
@@ -52,24 +55,15 @@ class RecipeTableViewCell: UITableViewCell {
         }
     }
     
+    /// Method to assign each outlet the right data for the favorite recipes
     var favoriteRecipes: RecipeEntity? {
         didSet {
             recipeNameLabel.text = favoriteRecipes?.label
-            
             recipeTimeLabel.text = (favoriteRecipes?.totalTime?.convertStringTime)!
-            
             yieldLabel.text = favoriteRecipes?.yield
-            
-//            guard let ingredients = favoriteRecipes?.ingredients else {return}
-//
-//                for ingredient in ingredients {
-//                ingredientsLabel.text = ingredient
-//            }
             if let ingredients = favoriteRecipes?.ingredientLine?.allObjects as? [IngredientLine] {
                 ingredientsLabel.text = ingredients.map({$0.name ?? ""}).joined(separator: ", ")
             }
-
-           
             guard let image = favoriteRecipes?.image else {return}
             recipeImageView.image = UIImage(data: image as Data)
             guard let calories = favoriteRecipes?.calories else {return}
@@ -77,7 +71,5 @@ class RecipeTableViewCell: UITableViewCell {
             caloriesLabel.text = "\(caloriesInt)" + " calories"
         }
     }
-    
-    
     
 }

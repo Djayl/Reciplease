@@ -41,12 +41,12 @@ class RecipeEntity: NSManagedObject {
         try? viewContext.save()
     }
     
-    static func fetchRecipe (label: String, viewContext: NSManagedObjectContext = AppDelegate.viewContext) -> [RecipeEntity] {
-        let request: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
-        request.predicate = NSPredicate(format: "label = %@", label)
-        guard let favoriteRecipes = try? viewContext.fetch(request) else {return []}
-        return favoriteRecipes
-    }
+//    static func fetchRecipe (label: String, viewContext: NSManagedObjectContext = AppDelegate.viewContext) -> [RecipeEntity] {
+//        let request: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()
+//        request.predicate = NSPredicate(format: "label = %@", label)
+//        guard let favoriteRecipes = try? viewContext.fetch(request) else {return []}
+//        return favoriteRecipes
+//    }
     
     static func deleteRecipe(with label: String, viewContext: NSManagedObjectContext = AppDelegate.viewContext) {
         let request: NSFetchRequest<RecipeEntity> = RecipeEntity.fetchRequest()

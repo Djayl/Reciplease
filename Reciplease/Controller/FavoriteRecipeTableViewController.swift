@@ -11,12 +11,17 @@ import CoreData
 
 class FavoriteRecipeTableViewController: UIViewController {
     
+    // MARK: - Outlets
+    
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var deleteButton: UIBarButtonItem!
+    
+    // MARK: - Properties
     
     var favoriteRecipes = RecipeEntity.fetchAll()
     var recipeDetail: Recipe?
     var recipes: Edamam?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +35,9 @@ class FavoriteRecipeTableViewController: UIViewController {
         tableView.reloadData()
     }
     
-    @IBAction func didTapDeleteButton(_ sender: Any) {
+    // MARK: - Methods
+    
+    fileprivate func deleteFavoriteRecipes() {
         presentAlertWithAction(message: "You are trying to delete all your favorites. Are you sure ?") {
             RecipeEntity.deleteAll()
             self.favoriteRecipes.removeAll()
@@ -39,16 +46,21 @@ class FavoriteRecipeTableViewController: UIViewController {
         tableView.reloadData()
     }
     
-   
-
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let detailsVC = segue.destination as? RecipeDetailViewController {
             detailsVC.favoriteRecipes = favoriteRecipes
             detailsVC.isFavorite = true
         }
     }
+    
+    // MARK: - Actions:
+    
+    @IBAction func didTapDeleteButton(_ sender: Any) {
+        deleteFavoriteRecipes()
+    }
 }
+
+// MARK: - DataSource and Delegate extension
 
 extension FavoriteRecipeTableViewController: UITableViewDataSource, UITableViewDelegate {
     
@@ -66,13 +78,9 @@ extension FavoriteRecipeTableViewController: UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-
+        
         favoriteRecipes = [RecipeEntity.fetchAll()[indexPath.row]]
         performSegue(withIdentifier: "showDetailSegue", sender: self)
-    }
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle,
@@ -102,6 +110,8 @@ extension FavoriteRecipeTableViewController: UITableViewDataSource, UITableViewD
 }
 
 
-    
-    
+
+
+
+
 
