@@ -22,7 +22,6 @@ class RecipeDetailViewController: UIViewController {
     @IBOutlet weak var getDirectionButton: UIButton!
     @IBOutlet weak var labelsView: UIView!
     @IBOutlet weak var recipeTableView: UITableView!
-    @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var favoriteButton: UIBarButtonItem!
     
     // MARK: - Properties
@@ -84,19 +83,8 @@ class RecipeDetailViewController: UIViewController {
         }
     }
     
-    fileprivate func shareRecipe() {
-        //Set the default sharing message.
-        let message = "Check out this recipe!"
-        //Set the link to share.
-        guard let recipeDetail = recipeDetail else {return}
-        guard let link = NSURL(string: recipeDetail.url) else {return}
-        
-        let objectsToShare = [message,link] as [Any]
-        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
-        present(activityVC, animated: true, completion: nil)
-    }
     
-    /// Method method that displays the recipe from the recipe list
+    /// Method that displays the recipe from the recipe list
     private func displayRecipe() {
         guard let recipeDetail = recipeDetail else {return}
         recipeNameLabel.text = recipeDetail.label
@@ -130,7 +118,7 @@ class RecipeDetailViewController: UIViewController {
         
     }
     
-    /// Method method that displays the favorite recipe
+    /// Method that displays the favorite recipe
     func displayFavoritesRecipes() {
         let name = favoriteRecipes[0].label
         recipeNameLabel.text = name
@@ -155,9 +143,6 @@ class RecipeDetailViewController: UIViewController {
         getDirection()
     }
     
-    @IBAction private func didTapShareButton(_ sender: Any) {
-        shareRecipe()
-    }
     
     @IBAction func didTapFavoriteButtonItem(_ sender: UIBarButtonItem) {
         addToFavorite()

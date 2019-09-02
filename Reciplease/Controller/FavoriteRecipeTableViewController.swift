@@ -13,7 +13,7 @@ class FavoriteRecipeTableViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet var tableView: UITableView! { didSet { tableView.tableFooterView = UIView()} }
     @IBOutlet weak var deleteButton: UIBarButtonItem!
     
     // MARK: - Properties
