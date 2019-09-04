@@ -189,9 +189,7 @@ extension RecipeDetailViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        
         return favoriteRecipes.isEmpty ? 200 : 0
-        
         
     }
 }

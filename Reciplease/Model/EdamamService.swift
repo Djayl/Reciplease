@@ -28,10 +28,15 @@ class EdamamService {
     /// Creation of the url for the network call
     func createURL(ingredients: [String]) -> URL? {
         let parameters = ingredients.joined(separator: "+")
-        let myURL = "\(baseURL)\(parameters)&app_id=\(appID)&app_key=\(appKey)"
+        var queryCharSet = NSCharacterSet.urlQueryAllowed
+        queryCharSet.remove(charactersIn: "+&")
+        let escapedParameters = parameters.addingPercentEncoding(withAllowedCharacters: queryCharSet)!
+        let myURL = "\(baseURL)\(escapedParameters)&app_id=\(appID)&app_key=\(appKey)"
+//        let myURL2 = myURL.addingPercentEncoding(withAllowedCharacters:.urlHostAllowed)!
         let myURL2 = myURL.replacingOccurrences(of: " ", with: "")
         
         guard let url = URL(string: myURL2) else { return nil }
+        
         return url
     }
     
@@ -56,3 +61,5 @@ class EdamamService {
         }
     }
 }
+
+

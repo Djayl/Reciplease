@@ -35,7 +35,7 @@
 		F0DA94AC22F5B48500D2E42F /* EdamamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DA94AB22F5B48500D2E42F /* EdamamService.swift */; };
 		F0DA94AE22F5B59100D2E42F /* Edamam.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DA94AD22F5B59100D2E42F /* Edamam.swift */; };
 		F0DA94B022F5D81200D2E42F /* IngredientListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DA94AF22F5D81200D2E42F /* IngredientListViewController.swift */; };
-		F0DA94B222F5DFEB00D2E42F /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DA94B122F5DFEB00D2E42F /* UIViewController.swift */; };
+		F0DA94B222F5DFEB00D2E42F /* UIViewController+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DA94B122F5DFEB00D2E42F /* UIViewController+alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,7 +85,7 @@
 		F0DA94AB22F5B48500D2E42F /* EdamamService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamService.swift; sourceTree = "<group>"; };
 		F0DA94AD22F5B59100D2E42F /* Edamam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edamam.swift; sourceTree = "<group>"; };
 		F0DA94AF22F5D81200D2E42F /* IngredientListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientListViewController.swift; sourceTree = "<group>"; };
-		F0DA94B122F5DFEB00D2E42F /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		F0DA94B122F5DFEB00D2E42F /* UIViewController+alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+alert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,7 +247,7 @@
 		F0DA94B322F5DFF100D2E42F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				F0DA94B122F5DFEB00D2E42F /* UIViewController.swift */,
+				F0DA94B122F5DFEB00D2E42F /* UIViewController+alert.swift */,
 				F084A94822F7277F0093F001 /* String.swift */,
 				F0186BDC22F76F9B00843484 /* Int.swift */,
 				F0170DEC230ED9DB004AECF2 /* UserDefaults.swift */,
@@ -468,7 +468,7 @@
 				F0DA94AA22F5B3C500D2E42F /* EdamamSession.swift in Sources */,
 				F0DA94AC22F5B48500D2E42F /* EdamamService.swift in Sources */,
 				F0DA94A822F5B38900D2E42F /* EdamamProtocol.swift in Sources */,
-				F0DA94B222F5DFEB00D2E42F /* UIViewController.swift in Sources */,
+				F0DA94B222F5DFEB00D2E42F /* UIViewController+alert.swift in Sources */,
 				F016646A22FC4C2D002D5A5A /* RecipeDetailViewController.swift in Sources */,
 				F01BD41D23019C65004CDD1E /* RecipeEntity.swift in Sources */,
 				F059D2EA22F5AC7A00B88FA4 /* AppDelegate.swift in Sources */,

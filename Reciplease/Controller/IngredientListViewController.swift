@@ -86,20 +86,24 @@ class IngredientListViewController: UIViewController {
     func searchRecipes() {
         toggleActivityIndicator(shown: true)
         edamamService.getRecipes(ingredients: ingredients) { (success, recipes) in
-            if success {
-                self.toggleActivityIndicator(shown: false)
-                guard let recipes = recipes else {return}
-                self.recipes = recipes
-                guard !recipes.hits.isEmpty else {
-                    self.presentAlert(with: "No recipes found with these ingredients")
-                    return
+            DispatchQueue.main.async {
+                if success {
+                    self.toggleActivityIndicator(shown: false)
+                    guard let recipes = recipes else {return}
+                    self.recipes = recipes
+                    print(recipes)
+                    guard !recipes.hits.isEmpty else {
+                        self.presentAlert(with: "No recipes found with these ingredients")
+                        return
+                    }
+                    self.performSegue(withIdentifier: "recipeListSegue", sender: self)
+                    
+                } else {
+                    self.presentAlert(with: "Please, check your connexion")
+                    self.toggleActivityIndicator(shown: false)
                 }
-                self.performSegue(withIdentifier: "recipeListSegue", sender: self)
-                
-            } else {
-                self.presentAlert(with: "Please, check your connection")
-                self.toggleActivityIndicator(shown: false)
             }
+           
         }
     }
     
